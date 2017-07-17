@@ -1,0 +1,23 @@
+{
+    "name": "flooris/prestashop-models",
+    "description": "Collection of Eloquent model files for using Laravel with Prestashop data",
+    "type": "library",
+    "require": {
+        "illuminate/support": "^5.4",
+        "illuminate/database": "^5.4",
+        "fzaninotto/faker": "^1.6"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tom Kuijer",
+            "email": "tom@flooris.nl"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Flooris\\Prestashop\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
