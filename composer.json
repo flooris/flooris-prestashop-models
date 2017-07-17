@@ -3,8 +3,8 @@
     "description": "Collection of Eloquent model files for using Laravel with Prestashop data",
     "type": "library",
     "require": {
-        "illuminate/support": "^5.4",
-        "illuminate/database": "^5.4",
+        "illuminate/support": "^5.3",
+        "illuminate/database": "^5.3",
         "fzaninotto/faker": "^1.6"
     },
     "license": "MIT",
