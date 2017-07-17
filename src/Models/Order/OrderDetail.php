@@ -3,6 +3,7 @@
 namespace Flooris\Prestashop\Models\Order;
 
 use Flooris\Prestashop\Models\PrestashopModel;
+use Flooris\Prestashop\Models\Product\Product;
 
 class OrderDetail extends PrestashopModel
 {
@@ -19,6 +20,11 @@ class OrderDetail extends PrestashopModel
     public function order()
     {
         return $this->belongsTo(Order::class, 'id_order', 'id_order');
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class, 'product_id', 'id_product');
     }
 
 }
