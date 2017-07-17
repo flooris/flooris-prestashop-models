@@ -14,6 +14,8 @@
 use Carbon\Carbon;
 use Faker\Generator;
 use Flooris\Prestashop\Models\Address;
+use Flooris\Prestashop\Models\Attribute\Attribute;
+use Flooris\Prestashop\Models\Attribute\AttributeGroup;
 use Flooris\Prestashop\Models\Category;
 use Flooris\Prestashop\Models\Customer;
 use Flooris\Prestashop\Models\Order\Order;
@@ -21,17 +23,19 @@ use Flooris\Prestashop\Models\Manufacturer;
 use Flooris\Prestashop\Models\Product\Product;
 use Flooris\Prestashop\Models\Order\OrderDetail;
 use Flooris\Prestashop\Models\Order\OrderInvoice;
+use Flooris\Prestashop\Models\Product\ProductAttribute;
+use Flooris\Prestashop\Models\Product\ProductAttributeCombination;
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(Customer::class, function(Generator $faker) {
     $is_guest = $faker->boolean(10);
 
-    return [
+    $data = [
         'id_shop_group' => 1,
-        'id_shop' => 4, // Brekz.nl
+        'id_shop' => 1,
         'id_gender' => $faker->randomElement([0, 1, 2]),
         'id_default_group' => $is_guest ? 2 : 3,
-        'id_lang' => 7, // Dutch
+        'id_lang' => 1,
         'id_risk' => 1,
         'company' => null,
         'siret' => null,
@@ -39,7 +43,7 @@ $factory->define(Customer::class, function(Generator $faker) {
         'lastname' => substr($faker->lastName, 0, 32),
         'firstname' => substr($faker->lastName, 0, 32),
         'email' => $faker->email,
-        'passwd' => md5($faker->password),
+        'passwd' => $faker->md5,
         'last_passwd_gen' => date('Y-m-d H:i:s'),
         'birthday' => $faker->dateTime,
         'newsletter' => 0,
@@ -49,7 +53,7 @@ $factory->define(Customer::class, function(Generator $faker) {
         'website' => null,
         'outstanding_allow_amount' => 0,
         'show_public_prices' => false,
-        'secure_key' => md5($faker->text()),
+        'secure_key' => $faker->md5,
         'note' => null,
         'active' => true,
         'is_guest' => $is_guest,
@@ -57,10 +61,12 @@ $factory->define(Customer::class, function(Generator $faker) {
         'date_add' => Carbon::now(),
         'date_upd' => Carbon::now()
     ];
+
+    return array_merge($data, config('prestashop.factories.customer', []));
 });
 
 $factory->define(Address::class, function(Generator $faker) {
-    return [
+    $data = [
         'id_country' => 13, // Netherlands
         'id_state' => 0,
         'id_customer' => function() {
@@ -87,6 +93,8 @@ $factory->define(Address::class, function(Generator $faker) {
         'date_add' => Carbon::now(),
         'date_upd' => Carbon::now(),
     ];
+
+    return array_merge($data, config('prestashop.factories.address', []));
 });
 
 $factory->define(OrderInvoice::class, function(Generator $faker) {
@@ -97,7 +105,7 @@ $factory->define(OrderInvoice::class, function(Generator $faker) {
     $total_products = $total_paid - $total_shipping;
     $total_products_wt = $total_products * 1.21;
 
-    return [
+    $data = [
         'id_order' => function() {
             return factory(Order::class)->create()->id_order;
         },
@@ -118,6 +126,8 @@ $factory->define(OrderInvoice::class, function(Generator $faker) {
         'note' => '',
         'date_add' => Carbon::now(),
     ];
+
+    return array_merge($data, config('prestashop.factories.order_invoice', []));
 });
 
 $factory->define(Order::class, function(Generator $faker) {
@@ -130,7 +140,7 @@ $factory->define(Order::class, function(Generator $faker) {
     $total_products = $total_paid - $total_shipping;
     $total_products_wt = $total_products * 1.21;
 
-    return [
+    $data = [
         'reference' => $faker->numerify('########'),
         'id_shop_group' => 1,
         'id_shop' => 4,
@@ -190,6 +200,8 @@ $factory->define(Order::class, function(Generator $faker) {
         'date_add' => Carbon::now(),
         'date_upd' => Carbon::now(),
     ];
+
+    return array_merge($data, config('prestashop.factories.order', []));
 });
 
 $factory->define(OrderDetail::class, function(Generator $faker) {
@@ -200,7 +212,7 @@ $factory->define(OrderDetail::class, function(Generator $faker) {
         return $n ** 2;
     });
 
-    return [
+    $data = [
         'id_order_invoice' => function() {
             return factory(OrderInvoice::class)->create()->id_order_invoice;
         },
@@ -209,7 +221,9 @@ $factory->define(OrderDetail::class, function(Generator $faker) {
         },
         'id_warehouse' => 0,
         'id_shop' => 0,
-        'product_id' => $faker->randomNumber(5),
+        'product_id' => function() {
+            return factory(Product::class)->create()->id_product;
+        },
         'product_attribute_id' => $faker->randomNumber(4),
         'product_name' => $product_name . ' - ' . $package,
         'product_quantity' => $product_quantity,
@@ -246,28 +260,28 @@ $factory->define(OrderDetail::class, function(Generator $faker) {
         'purchase_supplier_price' => 0,
         'original_product_price' => ($product_price / $product_quantity) / 1.21,
     ];
+
+    return array_merge($data, config('prestashop.factories.order_detail', []));
 });
 
 $factory->define(Manufacturer::class, function(Generator $faker) {
-    return [
+    $data = [
         'name' => $faker->company,
         'active' => true,
         'date_add' => Carbon::now(),
         'date_upd' => Carbon::now(),
     ];
+
+    return array_merge($data, config('prestashop.factories.manufacturer', []));
 });
 
 $factory->define(Product::class, function(Generator $faker) {
-    return [
+    $data = [
         'id_supplier' => 0,
-        'id_manufacturer' => function() {
-            return factory(Manufacturer::class)->create()->id_manufacturer;
-        },
-        'id_category_default' => function() {
-            return factory(Category::class)->create()->id_category;
-        },
+        'id_manufacturer' => 0,
+        'id_category_default' => 0,
         'id_shop_default' => 1,
-        'id_tax_rules_group' => null,
+        'id_tax_rules_group' => 1,
         'on_sale' => false,
         'online_only' => false,
         'ean13' => $faker->ean13,
@@ -308,4 +322,77 @@ $factory->define(Product::class, function(Generator $faker) {
         'date_upd' => Carbon::now(),
         'advanced_stock_management' => false,
     ];
+
+    return array_merge($data, config('prestashop.factories.product', []));
+});
+
+$factory->define(ProductAttribute::class, function(Generator $faker) {
+    $data = [
+        'id_product' => function() {
+            return factory(Product::class)->create()->id_product;
+        },
+        'reference' => null,
+        'supplier_reference' => null,
+        'location' => null,
+        'ean13' => null,
+        'upc' => null,
+        'wholesale_price' => 0.000000,
+        'price' => 10.000000,
+        'ecotax' => 0,
+        'quantity' => 0,
+        'weight' => 0,
+        'unit_price_impact' => 0.00,
+        'default_on' => true,
+        'minimal_quantity' => 0,
+        'available_date' => Carbon::now()->startOfCentury(),
+        'active' => true,
+    ];
+
+    return array_merge($data, config('prestashop.factories.product_attribute', []));
+});
+
+$factory->define(AttributeGroup::class, function(Generator $faker) {
+    $data = [
+        'group_type' => $faker->randomElement([
+            'select', 'radio', 'color'
+        ]),
+        'is_color_group' => function(array $attribute_group) {
+            return $attribute_group['group_type'] == 'color';
+        },
+        'position' => 0,
+    ];
+
+    return array_merge($data, config('prestashop.factories.attribute_group', []));
+});
+
+$factory->define(Attribute::class, function(Generator $faker) {
+    $data = [
+        'id_attribute_group' => function() {
+            return factory(AttributeGroup::class)->create()->id_attribute_group;
+        },
+        'color' => function(array $attribute) use ($faker) {
+            $color_group = AttributeGroup::find($attribute['id_attribute_group'])->is_color_group;
+            if( $color_group ) {
+                return $faker->hexColor;
+            }
+
+            return '#000000';
+        },
+        'position' => 0
+    ];
+
+    return array_merge($data, config('prestashop.factories.attribute', []));
+});
+
+$factory->define(ProductAttributeCombination::class, function(Generator $faker) {
+    $data = [
+        'id_attribute' => function() {
+            return factory(Attribute::class)->create()->id_attribute;
+        },
+        'id_product_attribute' => function() {
+            return factory(ProductAttribute::class)->create()->id_product_attribute;
+        },
+    ];
+
+    return array_merge($data, config('prestashop.factories.product_attribute_combination', []));
 });
