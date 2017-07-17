@@ -12,6 +12,6 @@ class OrderInvoice extends PrestashopModel
 
     public function order()
     {
-        return $this->belongsTo(Order::class);
+        return $this->belongsTo(Order::class, 'id_order', 'id_order');
     }
 }

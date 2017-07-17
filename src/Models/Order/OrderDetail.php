@@ -16,4 +16,9 @@ class OrderDetail extends PrestashopModel
         return ($this->product_quantity * $this->product_weight);
     }
 
+    public function order()
+    {
+        return $this->belongsTo(Order::class, 'id_order', 'id_order');
+    }
+
 }
