@@ -13,11 +13,14 @@
 
 use Carbon\Carbon;
 use Faker\Generator;
-use Flooris\Prestashop\Models\Order;
 use Flooris\Prestashop\Models\Address;
+use Flooris\Prestashop\Models\Category;
 use Flooris\Prestashop\Models\Customer;
-use Flooris\Prestashop\Models\OrderDetail;
-use Flooris\Prestashop\Models\OrderInvoice;
+use Flooris\Prestashop\Models\Order\Order;
+use Flooris\Prestashop\Models\Manufacturer;
+use Flooris\Prestashop\Models\Product\Product;
+use Flooris\Prestashop\Models\Order\OrderDetail;
+use Flooris\Prestashop\Models\Order\OrderInvoice;
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(Customer::class, function(Generator $faker) {
@@ -95,7 +98,9 @@ $factory->define(OrderInvoice::class, function(Generator $faker) {
     $total_products_wt = $total_products * 1.21;
 
     return [
-        'id_order' => null,
+        'id_order' => function() {
+            return factory(Order::class)->create()->id_order;
+        },
         'number' => $faker->randomNumber(4),
         'delivery_number' => 0,
         'delivery_date' => null,
@@ -117,14 +122,6 @@ $factory->define(OrderInvoice::class, function(Generator $faker) {
 
 $factory->define(Order::class, function(Generator $faker) {
     $same_address = $faker->boolean(80);
-    $id_customer = factory(Customer::class)->create()->id_customer;
-    $id_address_delivery = factory(Address::class)->create([
-        'id_customer' => $id_customer
-    ])->id_address;
-
-    $id_address_invoice = $same_address ? $id_address_delivery : factory(Address::class)->create([
-        'id_customer' => $id_customer
-    ])->id_address;
 
     $total_paid =  $faker->randomFloat(2, 15, 120);
     $total_paid_tax_excl = $total_paid / 1.21;
@@ -139,12 +136,26 @@ $factory->define(Order::class, function(Generator $faker) {
         'id_shop' => 4,
         'id_carrier' => 34,
         'id_lang' => 7,
-        'id_customer' => $id_customer,
+        'id_customer' => function() {
+            return factory(Customer::class)->create()->id_customer;
+        },
         'id_cart' => $faker->numberBetween(0, 9999999),
         'id_order_docdata' => $faker->numerify('#####-######'),
         'id_currency' => 2,
-        'id_address_delivery' => $id_address_delivery,
-        'id_address_invoice' => $id_address_invoice,
+        'id_address_delivery' => function(array $order) {
+            return factory(Address::class)->create([
+                'id_customer' => $order['id_customer'],
+            ])->id_address;
+        },
+        'id_address_invoice' => function(array $order) use ($same_address) {
+            if( $same_address ) {
+                return $order['id_address_delivery'];
+            }
+
+            return factory(Address::class)->create([
+                'id_customer' => $order['id_customer'],
+            ])->id_address;
+        },
         'current_state' => 3,
         'secure_key' => md5($faker->text),
         'payment' => $faker->randomElement(config('prestashop.seeder.payment_methods')),
@@ -178,41 +189,29 @@ $factory->define(Order::class, function(Generator $faker) {
         'valid' => 1,
         'date_add' => Carbon::now(),
         'date_upd' => Carbon::now(),
-        'pcid' => $faker->numerify('GeenDocdata-####################.############'),
-        'order_message_type' => '',
-        'order_message_value' => '',
     ];
 });
 
 $factory->define(OrderDetail::class, function(Generator $faker) {
-    $order = factory(Order::class)->create();
-    $order_invoice = factory(OrderInvoice::class)->create([
-        'id_order' => $order->id_order
-    ]);
-    $order->invoice_number = $order_invoice->id_order_invoice;
-    $order->save();
-
     $package = $faker->numerify($faker->randomElement(config('prestashop.seeder.attribute_options')));
-
     $product_name = $faker->words(6, true);
-
     $product_price = $faker->randomFloat(2, 10, 120);
-
-    $product_quantity = $faker->biasedNumberBetween(1, 4, function($n) {
+    $product_quantity = $faker->biasedNumberBetween(1, 8, function($n) {
         return $n ** 2;
     });
 
     return [
-        'id_order' => $order->id_order,
-        'id_order_invoice' => $order_invoice->id_order_invoice,
+        'id_order_invoice' => function() {
+            return factory(OrderInvoice::class)->create()->id_order_invoice;
+        },
+        'id_order' => function(array $order_detail) {
+            return OrderInvoice::find($order_detail['id_order_invoice'])->id_order;
+        },
         'id_warehouse' => 0,
         'id_shop' => 0,
         'product_id' => $faker->randomNumber(5),
         'product_attribute_id' => $faker->randomNumber(4),
         'product_name' => $product_name . ' - ' . $package,
-        'product_combination_name' => $package,
-        'product_name_bare' => $product_name,
-        'product_name_invoice' => sprintf('<b>%s</b>', $product_name),
         'product_quantity' => $product_quantity,
         'product_quantity_in_stock' => 1,
         'product_quantity_refunded' => 0,
@@ -246,5 +245,67 @@ $factory->define(OrderDetail::class, function(Generator $faker) {
         'total_shipping_price_tax_excl' => 0,
         'purchase_supplier_price' => 0,
         'original_product_price' => ($product_price / $product_quantity) / 1.21,
+    ];
+});
+
+$factory->define(Manufacturer::class, function(Generator $faker) {
+    return [
+        'name' => $faker->company,
+        'active' => true,
+        'date_add' => Carbon::now(),
+        'date_upd' => Carbon::now(),
+    ];
+});
+
+$factory->define(Product::class, function(Generator $faker) {
+    return [
+        'id_supplier' => 0,
+        'id_manufacturer' => function() {
+            return factory(Manufacturer::class)->create()->id_manufacturer;
+        },
+        'id_category_default' => function() {
+            return factory(Category::class)->create()->id_category;
+        },
+        'id_shop_default' => 1,
+        'id_tax_rules_group' => null,
+        'on_sale' => false,
+        'online_only' => false,
+        'ean13' => $faker->ean13,
+        'upc' => '',
+        'ecotax' => 0,
+        'quantity' => 0,
+        'minimal_quantity' => 1,
+        'price' => $faker->randomFloat(2, 1, 140),
+        'wholesale_price' => 0,
+        'unity' => '',
+        'unit_price_ratio' => 0,
+        'additional_shipping_cost' => 0,
+        'reference' => $faker->bothify('#####-?????'),
+        'supplier_reference' => $faker->bothify('#####-?????'),
+        'location' => '',
+        'width' => $faker->numberBetween(20, 800),
+        'height' => $faker->numberBetween(20, 800),
+        'depth' => $faker->numberBetween(20, 800),
+        'weight' => $faker->numberBetween(0.25, 80),
+        'out_of_stock' => 0,
+        'quantity_discount' => false,
+        'customizable' => false,
+        'uploadable_files' => false,
+        'text_fields' => false,
+        'active' => true,
+        'redirect_type' => '',
+        'id_product_redirected' => 0,
+        'available_for_order' => true,
+        'available_date' => Carbon::now(),
+        'condition' => 'new',
+        'show_price' => true,
+        'indexed' => true,
+        'visibility' => 'both',
+        'cache_is_pack' => false,
+        'is_virtual' => false,
+        'cache_default_attribute' => null,
+        'date_add' => Carbon::now(),
+        'date_upd' => Carbon::now(),
+        'advanced_stock_management' => false,
     ];
 });

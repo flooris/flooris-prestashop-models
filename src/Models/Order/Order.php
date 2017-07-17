@@ -1,10 +1,13 @@
 <?php
 
-namespace Flooris\Prestashop\Models;
+namespace Flooris\Prestashop\Models\Order;
 
 use DB;
-use Illuminate\Database\Eloquent\Model;
+use Flooris\Prestashop\Models\Address;
+use Flooris\Prestashop\Models\CartRule;
+use Flooris\Prestashop\Models\Customer;
 use Illuminate\Database\Query\JoinClause;
+use Flooris\Prestashop\Models\PrestashopModel;
 
 /**
  * Class Order
@@ -12,7 +15,7 @@ use Illuminate\Database\Query\JoinClause;
  * @package App\Models
  * @mixin \Eloquent
  */
-class Order extends Model
+class Order extends PrestashopModel
 {
 
     public $timestamps = false;

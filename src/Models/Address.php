@@ -2,19 +2,16 @@
 
 namespace Flooris\Prestashop\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
 /**
  * Class Address
  *
  * @package App\Models
  * @mixin \Eloquent
  */
-class Address extends Model
+class Address extends PrestashopModel
 {
 
     public $primaryKey = 'id_address';
-    public $timestamps = false;
     public $table = 'address';
 
     public function country()

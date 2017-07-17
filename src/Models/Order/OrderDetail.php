@@ -1,10 +1,10 @@
 <?php
 
-namespace Flooris\Prestashop\Models;
+namespace Flooris\Prestashop\Models\Order;
 
-use Illuminate\Database\Eloquent\Model;
+use Flooris\Prestashop\Models\PrestashopModel;
 
-class OrderDetail extends Model
+class OrderDetail extends PrestashopModel
 {
 
     public $timestamps = false;
