@@ -21,4 +21,11 @@ abstract class PrestashopModel extends Model
      */
     const UPDATED_AT = 'date_upd';
 
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->setConnection(config('prestashop.db_connection'));
+    }
+
 }

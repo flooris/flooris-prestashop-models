@@ -1,6 +1,7 @@
 <?php
 
 return [
+
     'seeder' => [
         'payment_methods' => [
             'iDEAL',
@@ -19,6 +20,7 @@ return [
             'Package: ## + # kg'
         ]
     ],
+
     'factories' => [
         'customer' => [],
         'address' => [],
@@ -31,5 +33,8 @@ return [
         'attribute_group' => [],
         'attribute' => [],
         'product_attribute_combination' => [],
-    ]
+    ],
+
+    'db_connection' => null,
+
 ];
