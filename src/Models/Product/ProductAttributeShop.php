@@ -3,10 +3,9 @@
 
 namespace Flooris\Prestashop\Models\Product;
 
-
 use Flooris\Prestashop\Models\PrestashopModel;
 
-class ProductAttribute extends PrestashopModel
+class ProductAttributeShop extends PrestashopModel
 {
     protected $table = 'product_attribute_shop';
     public $timestamps = false;
