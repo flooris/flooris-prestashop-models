@@ -3,10 +3,8 @@
     "description": "Collection of Eloquent model files for using Laravel with Prestashop data",
     "type": "library",
     "require": {
-        "illuminate/support": "^5.3",
-        "illuminate/database": "^5.3",
-        "fzaninotto/faker": "^1.6",
-        "nesbot/carbon": "^1.22"
+        "php": "^7.4|^8.0",
+        "laravel/framework": "^8.18"
     },
     "license": "MIT",
     "authors": [
@@ -17,7 +15,8 @@
     ],
     "autoload": {
         "psr-4": {
-            "Flooris\\Prestashop\\": "src/"
+            "Flooris\\Prestashop\\": "src/",
+            "Flooris\\Prestashop\\Database\\Factories\\": "src/database/factories/"
         }
     },
     "minimum-stability": "stable"

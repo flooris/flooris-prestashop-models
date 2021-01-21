@@ -21,20 +21,5 @@ return [
         ]
     ],
 
-    'factories' => [
-        'customer' => [],
-        'address' => [],
-        'order_invoice' => [],
-        'order' => [],
-        'order_detail' => [],
-        'manufacturer' => [],
-        'product' => [],
-        'product_attribute' => [],
-        'attribute_group' => [],
-        'attribute' => [],
-        'product_attribute_combination' => [],
-    ],
-
     'db_connection' => null,
-
 ];

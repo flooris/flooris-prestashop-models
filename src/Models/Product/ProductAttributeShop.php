@@ -1,19 +1,43 @@
 <?php
 
-
 namespace Flooris\Prestashop\Models\Product;
 
 use Flooris\Prestashop\Models\PrestashopModel;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * Class ProductAttributeShop
+ *
+ * @package Flooris\Prestashop\Models\Product
+ */
 class ProductAttributeShop extends PrestashopModel
 {
-    public $timestamps = false;
-
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
     protected $table = 'product_attribute_shop';
 
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
     protected $guarded = [];
 
-    // Set default values for attributes that are rarely filled.
+    /**
+     * The model's default values for attributes.
+     *
+     * @var array
+     */
     protected $attributes = [
         'wholesale_price'   => 0,
         'ecotax'            => 0,
@@ -23,7 +47,12 @@ class ProductAttributeShop extends PrestashopModel
         'available_date'    => '0000-00-00',
     ];
 
-    public function product()
+    /**
+     * Get the product the shop attribute belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class, 'id_product', 'id_product');
     }

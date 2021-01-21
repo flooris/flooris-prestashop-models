@@ -2,61 +2,119 @@
 
 namespace Flooris\Prestashop\Models\Order;
 
-use DB;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Collection;
 use Flooris\Prestashop\Models\Address;
 use Flooris\Prestashop\Models\CartRule;
 use Flooris\Prestashop\Models\Customer;
 use Illuminate\Database\Query\JoinClause;
 use Flooris\Prestashop\Models\PrestashopModel;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
  * Class Order
  *
- * @package App\Models
- * @mixin \Eloquent
+ * @package Flooris\Prestashop\Models\Order
  */
 class Order extends PrestashopModel
 {
+    use HasFactory;
 
-    public $timestamps = false;
+    /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
     protected $primaryKey = 'id_order';
-    protected $dates = [
-        'invoice_date',
-        'delivery_date',
-        'date_add',
-        'date_upd',
+
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'invoice_date' => 'datetime',
+        'delivery_date' => 'datetime',
+        'date_add' => 'datetime',
+        'date_upd' => 'datetime',
     ];
 
-    public function address_invoice()
+    /**
+     * Get the invoice address that owns the order.
+     *
+     * @return BelongsTo
+     */
+    public function address_invoice(): BelongsTo
     {
         return $this->belongsTo(Address::class, 'id_address_invoice');
     }
 
-    public function address_delivery()
+    /**
+     * Get the delivery address that the order belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function address_delivery(): BelongsTo
     {
         return $this->belongsTo(Address::class, 'id_address_delivery');
     }
 
-    public function customer()
+    /**
+     * Get the customer that the order belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function customer(): BelongsTo
     {
         return $this->belongsTo(Customer::class, 'id_customer');
     }
 
-    public function products()
+    /**
+     * Get the products for the order.
+     *
+     * @return HasMany
+     */
+    public function products(): HasMany
     {
         return $this->hasMany(OrderDetail::class, 'id_order');
     }
 
-    public function cart_rules()
+    /**
+     * Get the cart rules that the order belongs to.
+     *
+     * @return BelongsToMany
+     */
+    public function cart_rules(): BelongsToMany
     {
         return $this->belongsToMany(CartRule::class, 'order_cart_rule', $this->primaryKey, 'id_cart_rule');
     }
 
-    public function invoice()
+    /**
+     * Get the invoice for the order.
+     *
+     * @return HasOne
+     */
+    public function invoice(): HasOne
     {
         return $this->hasOne(OrderInvoice::class, 'id_order', 'id_order');
     }
 
+    /**
+     * Get the name of the carrier.
+     *
+     * @return mixed|null
+     */
     public function getCarrierNameAttribute()
     {
         return DB::table('orders AS o')
@@ -71,13 +129,23 @@ class Order extends PrestashopModel
             ->value('c.name');
     }
 
-    public function getOrderPaymentsAttribute()
+    /**
+     * Get the order payments
+     *
+     * @return Collection
+     */
+    public function getOrderPaymentsAttribute(): Collection
     {
         return DB::table('order_payment')
             ->where('order_reference', $this->reference)
             ->get();
     }
 
+    /**
+     * Get the total weight of the order.
+     *
+     * @return mixed
+     */
     public function getTotalWeightAttribute()
     {
         return $this->products->sum('weight');

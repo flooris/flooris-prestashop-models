@@ -4,9 +4,13 @@ namespace Flooris\Prestashop\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class PrestashopModel
+ *
+ * @package Flooris\Prestashop\Models
+ */
 abstract class PrestashopModel extends Model
 {
-
     /**
      * The name of the "created at" column.
      *
@@ -21,11 +25,13 @@ abstract class PrestashopModel extends Model
      */
     const UPDATED_AT = 'date_upd';
 
+    /**
+     * PrestashopModel constructor.
+     */
     public function __construct()
     {
         parent::__construct();
 
         $this->setConnection(config('prestashop.db_connection'));
     }
-
 }
