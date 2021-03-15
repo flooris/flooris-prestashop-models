@@ -36,6 +36,13 @@ class SpecificPrice extends PrestashopModel
      *
      * @var string
      */
+    protected $table = 'specific_price';
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
     protected $primaryKey = 'id_specific_price';
 
     /**
