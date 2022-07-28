@@ -5,8 +5,11 @@ namespace Flooris\Prestashop\Models\Product;
 use Flooris\Prestashop\Models\Category;
 use Flooris\Prestashop\Models\Manufacturer;
 use Flooris\Prestashop\Models\PrestashopModel;
+use Flooris\Prestashop\Models\Feature\Feature;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Flooris\Prestashop\Models\Feature\FeatureProduct;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 /**
  * Class Product
@@ -50,5 +53,18 @@ class Product extends PrestashopModel
     public function manufacturer(): BelongsTo
     {
         return $this->belongsTo(Manufacturer::class, 'id_manufacturer', 'id_manufacturer');
+    }
+
+
+    public function features(): HasManyThrough
+    {
+        return $this->hasManyThrough(
+            Feature::class,
+            FeatureProduct::class,
+            'id_product',
+            'id_feature',
+            'id_product',
+            'id_feature'
+        );
     }
 }
