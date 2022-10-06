@@ -2,11 +2,15 @@
 
 namespace Flooris\Prestashop\Models\Feature;
 
+use Flooris\Prestashop\Models\Language;
+use Flooris\Prestashop\Traits\Translatable;
 use Flooris\Prestashop\Models\PrestashopModel;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Feature extends PrestashopModel
 {
+    use Translatable;
 
     /**
      * The table associated with the model.
@@ -28,5 +32,15 @@ class Feature extends PrestashopModel
      * @var bool
      */
     public $timestamps = false;
+
+    /**
+     * Get feature value translations
+     *
+     * @return BelongsTo
+     */
+    public function translations(): HasMany
+    {
+        return $this->hasMany(FeatureLang::class, 'id_feature');
+    }
 
 }

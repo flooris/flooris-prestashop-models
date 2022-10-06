@@ -3,9 +3,11 @@
 namespace Flooris\Prestashop\Models\Product;
 
 use Flooris\Prestashop\Models\Category;
+use Flooris\Prestashop\Models\Image\Image;
 use Flooris\Prestashop\Models\Manufacturer;
 use Flooris\Prestashop\Models\PrestashopModel;
 use Flooris\Prestashop\Models\Feature\Feature;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Flooris\Prestashop\Models\Feature\FeatureProduct;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -55,6 +57,10 @@ class Product extends PrestashopModel
         return $this->belongsTo(Manufacturer::class, 'id_manufacturer', 'id_manufacturer');
     }
 
+    public function featureProducts(): HasMany
+    {
+        return $this->hasMany(FeatureProduct::class, 'id_product');
+    }
 
     public function features(): HasManyThrough
     {
@@ -66,5 +72,20 @@ class Product extends PrestashopModel
             'id_product',
             'id_feature'
         );
+    }
+
+    public function images(): HasMany
+    {
+        return $this->hasMany(Image::class, 'id_product');
+    }
+
+    public function getCoverImageAttribute()
+    {
+        return $this->images()->where('cover')->first();
+    }
+
+    public function translations(): HasMany
+    {
+        return $this->hasMany(ProductLang::class, 'id_product');
     }
 }
