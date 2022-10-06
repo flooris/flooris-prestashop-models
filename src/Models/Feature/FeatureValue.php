@@ -2,11 +2,16 @@
 
 namespace Flooris\Prestashop\Models\Feature;
 
+use Flooris\Prestashop\Models\Language;
+use Flooris\Prestashop\Traits\Translatable;
 use Flooris\Prestashop\Models\Product\Product;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class FeatureValue extends \Flooris\Prestashop\Models\PrestashopModel
 {
+    use Translatable;
+
     /**
      * The table associated with the model.
      *
@@ -29,12 +34,22 @@ class FeatureValue extends \Flooris\Prestashop\Models\PrestashopModel
     public $timestamps = false;
 
     /**
-     * Get product the feature belongs to.
+     * Get feature the value belongs to.
      *
      * @return BelongsTo
      */
     public function feature(): BelongsTo
     {
         return $this->belongsTo(Feature::class, 'id_feature', 'id_feature');
+    }
+
+    /**
+     * Get feature translations
+     *
+     * @return BelongsTo
+     */
+    public function translations(): HasMany
+    {
+        return $this->hasMany(FeatureValueLang::class, 'id_feature_value');
     }
 }
