@@ -26,6 +26,13 @@ abstract class PrestashopModel extends Model
     const UPDATED_AT = 'date_upd';
 
     /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [];
+
+    /**
      * PrestashopModel constructor.
      */
     public function __construct()
