@@ -2,7 +2,6 @@
 
 namespace Flooris\Prestashop\Models\Feature;
 
-use Flooris\Prestashop\Models\Language;
 use Flooris\Prestashop\Traits\Translatable;
 use Flooris\Prestashop\Models\PrestashopModel;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -36,7 +35,7 @@ class Feature extends PrestashopModel
     /**
      * Get feature value translations
      *
-     * @return BelongsTo
+     * @return HasMany
      */
     public function translations(): HasMany
     {

@@ -2,9 +2,7 @@
 
 namespace Flooris\Prestashop\Models\Feature;
 
-use Flooris\Prestashop\Models\Language;
 use Flooris\Prestashop\Traits\Translatable;
-use Flooris\Prestashop\Models\Product\Product;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -46,7 +44,7 @@ class FeatureValue extends \Flooris\Prestashop\Models\PrestashopModel
     /**
      * Get feature translations
      *
-     * @return BelongsTo
+     * @return HasMany
      */
     public function translations(): HasMany
     {
