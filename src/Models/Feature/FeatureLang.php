@@ -2,11 +2,12 @@
 
 namespace Flooris\Prestashop\Models\Feature;
 
-use Flooris\Prestashop\Models\Product\Product;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Flooris\Prestashop\Traits\CompositeKeyModelTrait;
 
 class FeatureLang extends \Flooris\Prestashop\Models\PrestashopModel
 {
+    use CompositeKeyModelTrait;
 
     /**
      * The table associated with the model.
@@ -15,12 +16,9 @@ class FeatureLang extends \Flooris\Prestashop\Models\PrestashopModel
      */
     protected $table = 'feature_lang';
 
-    /**
-     * The primary key associated with the table.
-     *
-     * @var string
-     */
-    protected $primaryKey = 'id_feature_lang';
+    protected $primaryKey = ['id_feature', 'id_lang'];
+
+    public $incrementing = false;
 
     /**
      * Indicates if the model should be timestamped.
