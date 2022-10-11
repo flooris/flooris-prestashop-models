@@ -5,9 +5,11 @@ namespace Flooris\Prestashop\Models\Feature;
 use Flooris\Prestashop\Models\PrestashopModel;
 use Flooris\Prestashop\Models\Product\Product;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Flooris\Prestashop\Traits\CompositeKeyModelTrait;
 
 class FeatureProduct extends PrestashopModel
 {
+    use CompositeKeyModelTrait;
 
     /**
      * The table associated with the model.
@@ -16,12 +18,9 @@ class FeatureProduct extends PrestashopModel
      */
     protected $table = 'feature_product';
 
-    /**
-     * The primary key associated with the table.
-     *
-     * @var string
-     */
-    protected $primaryKey = 'id_feature_product';
+    protected $primaryKey = ['id_feature', 'id_product'];
+
+    public $incrementing = false;
 
     /**
      * Indicates if the model should be timestamped.
@@ -48,5 +47,15 @@ class FeatureProduct extends PrestashopModel
     public function feature(): BelongsTo
     {
         return $this->belongsTo(Feature::class, 'id_feature', 'id_feature');
+    }
+
+    /**
+     * Get product the feature belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function featureValue(): BelongsTo
+    {
+        return $this->belongsTo(FeatureValue::class, 'id_feature_value', 'id_feature_value');
     }
 }
