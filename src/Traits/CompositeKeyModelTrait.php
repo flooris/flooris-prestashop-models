@@ -2,6 +2,8 @@
 
 namespace Flooris\Prestashop\Traits;
 
+use Illuminate\Support\Str;
+
 trait CompositeKeyModelTrait
 {
     /**
@@ -41,5 +43,25 @@ trait CompositeKeyModelTrait
         }
 
         return $this->getAttribute($keyName);
+    }
+
+
+    /**
+     * Qualify the given column name by the model's table.
+     *
+     * @param array|string $columns
+     * @return string
+     */
+    public function qualifyColumn($columns)
+    {
+        if (is_array($columns)) {
+            $column = $columns[0];
+        }
+
+        if (Str::contains($column, '.')) {
+            return $column;
+        }
+
+        return $this->getTable() . '.' . $column;
     }
 }
