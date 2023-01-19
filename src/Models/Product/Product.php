@@ -88,4 +88,9 @@ class Product extends PrestashopModel
     {
         return $this->hasMany(ProductLang::class, 'id_product');
     }
+
+    public function productShops(): HasMany
+    {
+        return $this->hasMany(ProductShop::class, 'id_product');
+    }
 }
