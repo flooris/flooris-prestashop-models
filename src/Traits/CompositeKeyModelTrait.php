@@ -3,16 +3,17 @@
 namespace Flooris\Prestashop\Traits;
 
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Builder;
 
 trait CompositeKeyModelTrait
 {
     /**
      * Set the keys for a save update query.
      *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @param  Builder  $query
+     * @return Builder
      */
-    protected function setKeysForSaveQuery($query)
+    protected function setKeysForSaveQuery($query): Builder
     {
         $keys = $this->getKeyName();
         if(!is_array($keys)){
@@ -52,7 +53,7 @@ trait CompositeKeyModelTrait
      * @param array|string $columns
      * @return string
      */
-    public function qualifyColumn($columns)
+    public function qualifyColumn($columns): string
     {
         if (is_array($columns)) {
             $column = $columns[0];

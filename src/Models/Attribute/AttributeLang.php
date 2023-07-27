@@ -2,10 +2,11 @@
 
 namespace Flooris\Prestashop\Models\Attribute;
 
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Flooris\Prestashop\Models\PrestashopModel;
 use Flooris\Prestashop\Traits\CompositeKeyModelTrait;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class AttributeLang extends \Flooris\Prestashop\Models\PrestashopModel
+class AttributeLang extends PrestashopModel
 {
     use CompositeKeyModelTrait;
 
