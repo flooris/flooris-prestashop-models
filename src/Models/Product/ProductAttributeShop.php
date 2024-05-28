@@ -33,6 +33,8 @@ class ProductAttributeShop extends PrestashopModel
      */
     public $timestamps = false;
 
+    public $incrementing = false;
+
     /**
      * The model's default values for attributes.
      *
