@@ -24,7 +24,7 @@ class ProductAttributeShop extends PrestashopModel
      *
      * @var string
      */
-    protected $primaryKey = ['id_product_attribute', 'id_lang'];
+    protected $primaryKey = ['id_product_attribute', 'id_shop'];
 
     /**
      * Indicates if the model should be timestamped.
@@ -34,6 +34,10 @@ class ProductAttributeShop extends PrestashopModel
     public $timestamps = false;
 
     public $incrementing = false;
+
+    public $casts = [
+        'active' => 'boolean',
+    ];
 
     /**
      * The model's default values for attributes.
