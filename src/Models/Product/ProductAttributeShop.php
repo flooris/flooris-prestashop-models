@@ -4,6 +4,8 @@ namespace Flooris\Prestashop\Models\Product;
 
 use Flooris\Prestashop\Models\PrestashopModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Builder;
+use Flooris\Prestashop\Traits\CompositeKeyModelTrait;
 
 /**
  * Class ProductAttributeShop
@@ -12,6 +14,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class ProductAttributeShop extends PrestashopModel
 {
+    use CompositeKeyModelTrait;
+
     /**
      * The table associated with the model.
      *
@@ -36,7 +40,10 @@ class ProductAttributeShop extends PrestashopModel
     public $incrementing = false;
 
     public $casts = [
-        'active' => 'boolean',
+        'active'               => 'boolean',
+        'id_product_attribute' => 'int',
+        'id_shop'              => 'int',
+        'id_product'           => 'int',
     ];
 
     /**
@@ -48,6 +55,7 @@ class ProductAttributeShop extends PrestashopModel
         'wholesale_price'   => 0,
         'ecotax'            => 0,
         'weight'            => 0,
+        'minimal_quantity'  => 1,
         'unit_price_impact' => 0,
         'default_on'        => null,
         'available_date'    => '0000-00-00',
