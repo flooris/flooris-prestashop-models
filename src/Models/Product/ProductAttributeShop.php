@@ -10,6 +10,31 @@ use Flooris\Prestashop\Traits\CompositeKeyModelTrait;
 /**
  * Class ProductAttributeShop
  *
+ * @property int         $id_product_attribute
+ * @property int         $id_product
+ * @property string|null $reference
+ * @property string|null $supplier_reference
+ * @property string|null $location
+ * @property string|null $ean13
+ * @property string|null $upc
+ * @property float       $wholesale_price
+ * @property float       $price
+ * @property float       $ecotax
+ * @property int         $quantity
+ * @property float       $weight
+ * @property float|null  $unit_price_impact
+ * @property int|null    $default_on
+ * @property int         $minimal_quantity
+ * @property string|null $available_date
+ * @property string|null $unavailable_status
+ * @property string|null $frontend_label
+ * @property int         $active
+ * @property string      $invoice_name
+ * @property string      $condition
+ * @property string|null $warehouse_category
+ * @property float       $gross_weight
+ * @property int         $is_bundle_in_feed
+ *
  * @package Flooris\Prestashop\Models\Product
  */
 class ProductAttributeShop extends PrestashopModel

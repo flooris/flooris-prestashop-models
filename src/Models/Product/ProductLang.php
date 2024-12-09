@@ -6,6 +6,30 @@ use Flooris\Prestashop\Models\PrestashopModel;
 use Flooris\Prestashop\Traits\CompositeKeyModelTrait;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+
+/**
+ * Class ProductLang
+ *
+ * @property int         $id_product
+ * @property int         $id_shop
+ * @property int         $id_lang
+ * @property string|null $description
+ * @property string|null $description_short
+ * @property string      $link_rewrite
+ * @property string|null $meta_description
+ * @property string|null $meta_keywords
+ * @property string|null $meta_title
+ * @property string      $name
+ * @property string|null $available_now
+ * @property string|null $available_later
+ * @property string|null $reorder_unavailable_message
+ * @property string|null $special_note
+ * @property string|null $special_note_color
+ * @property string|null $special_note_color_applied_to
+ * @property string|null $special_note_icon
+ *
+ * @package Flooris\Prestashop\Models\Product
+ */
 class ProductLang extends PrestashopModel
 {
     use CompositeKeyModelTrait;

@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class AttributeGroup
  *
+ * @property int    $id_attribute_group
+ * @property int    $is_color_group
+ * @property string $group_type
+ * @property int    $position
+ *
  * @package Flooris\Prestashop\Models\Attribute
  */
 class AttributeGroup extends PrestashopModel

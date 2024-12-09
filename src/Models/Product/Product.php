@@ -16,6 +16,60 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 /**
  * Class Product
  *
+ * @property int         $id_product
+ * @property int|null    $id_supplier
+ * @property int|null    $id_manufacturer
+ * @property int|null    $id_category_default
+ * @property int         $id_shop_default
+ * @property int         $id_tax_rules_group
+ * @property int         $on_sale
+ * @property int         $online_only
+ * @property string|null $ean13
+ * @property string|null $upc
+ * @property float       $ecotax
+ * @property int         $quantity
+ * @property int         $minimal_quantity
+ * @property float       $price
+ * @property float       $wholesale_price
+ * @property string|null $unity
+ * @property float       $unit_price_ratio
+ * @property float       $additional_shipping_cost
+ * @property string|null $reference
+ * @property string|null $supplier_reference
+ * @property string|null $location
+ * @property float       $width
+ * @property float       $height
+ * @property float       $depth
+ * @property float       $weight
+ * @property int         $out_of_stock
+ * @property int|null    $quantity_discount
+ * @property int         $customizable
+ * @property int         $uploadable_files
+ * @property int         $text_fields
+ * @property int         $active
+ * @property string      $redirect_type
+ * @property int         $id_product_redirected
+ * @property int         $available_for_order
+ * @property string|null $available_date
+ * @property string      $condition
+ * @property int         $show_price
+ * @property int         $indexed
+ * @property string      $visibility
+ * @property int         $cache_is_pack
+ * @property int         $cache_has_attachments
+ * @property int         $is_virtual
+ * @property int|null    $cache_default_attribute
+ * @property string      $date_add
+ * @property string      $date_upd
+ * @property int         $advanced_stock_management
+ * @property int|null    $id_googlecategory
+ * @property string      $name_invoice
+ * @property int         $store_location
+ * @property int|null    $pack_stock_type
+ * @property string|null $hs_code
+ * @property string|null $origin_country
+ * @property int         $review_priority
+ *
  * @package Flooris\Prestashop\Models\Product
  */
 class Product extends PrestashopModel

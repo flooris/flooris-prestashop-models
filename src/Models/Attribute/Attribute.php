@@ -10,6 +10,15 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 /**
  * Class Attribute
  *
+ * @property int         $id_attribute
+ * @property int         $id_attribute_group
+ * @property string|null $color
+ * @property int         $position
+ * @property string|null $promotion
+ * @property string|null $display_name
+ * @property float|null  $price_unit_value
+ * @property string|null $price_unit_type
+ *
  * @package Flooris\Prestashop\Models\Attribute
  */
 class Attribute extends PrestashopModel

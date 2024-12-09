@@ -18,6 +18,58 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 /**
  * Class Order
  *
+ * @property int         $id_order
+ * @property string|null $reference
+ * @property int         $id_shop_group
+ * @property int         $id_shop
+ * @property int         $id_carrier
+ * @property int         $id_lang
+ * @property int         $id_customer
+ * @property int         $id_cart
+ * @property string|null $id_order_docdata
+ * @property int         $id_currency
+ * @property int         $id_address_delivery
+ * @property int         $id_address_invoice
+ * @property int         $current_state
+ * @property string      $secure_key
+ * @property string      $payment
+ * @property float       $conversion_rate
+ * @property string|null $module
+ * @property bool        $recyclable
+ * @property bool        $gift
+ * @property string|null $gift_message
+ * @property bool        $mobile_theme
+ * @property string|null $shipping_number
+ * @property float       $total_discounts
+ * @property float       $total_discounts_tax_incl
+ * @property float       $total_discounts_tax_excl
+ * @property float       $total_paid
+ * @property float       $total_paid_tax_incl
+ * @property float       $total_paid_tax_excl
+ * @property float       $total_paid_real
+ * @property float       $total_products
+ * @property float       $total_products_wt
+ * @property float       $total_shipping
+ * @property float       $total_shipping_tax_incl
+ * @property float       $total_shipping_tax_excl
+ * @property float       $carrier_tax_rate
+ * @property float       $total_wrapping
+ * @property float       $total_wrapping_tax_incl
+ * @property float       $total_wrapping_tax_excl
+ * @property int         $round_mode
+ * @property int         $round_type
+ * @property int         $invoice_number
+ * @property int         $delivery_number
+ * @property string      $invoice_date
+ * @property string      $delivery_date
+ * @property bool        $valid
+ * @property string|null $ga_client_id
+ * @property string|null $ga_session_id
+ * @property string      $date_add
+ * @property string      $date_upd
+ * @property string|null $order_message_type
+ * @property string|null $order_message_value
+ *
  * @package Flooris\Prestashop\Models\Order
  */
 class Order extends PrestashopModel

@@ -8,6 +8,9 @@ use Flooris\Prestashop\Traits\CompositeKeyModelTrait;
 /**
  * Class ProductAttributeCombination
  *
+ * @property int $id_attribute
+ * @property int $id_product_attribute
+ *
  * @package Flooris\Prestashop\Models\Product
  */
 class ProductAttributeCombination extends PrestashopModel
