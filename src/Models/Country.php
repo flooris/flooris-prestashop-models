@@ -23,5 +23,5 @@ class Country extends PrestashopModel
      *
      * @var string
      */
-    public $primaryKey = 'id_country';
+    protected $primaryKey = 'id_country';
 }

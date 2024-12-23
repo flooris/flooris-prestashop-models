@@ -18,8 +18,8 @@ use Flooris\Prestashop\Models\PrestashopModel;
  */
 class OrderShipments extends PrestashopModel
 {
-    public $table = 'order_shipments';
+    protected $table = 'order_shipments';
 
-    public $primaryKey = 'id_order_shipment';
+    protected $primaryKey = 'id_order_shipment';
 
 }

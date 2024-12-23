@@ -29,9 +29,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class OrderState extends PrestashopModel
 {
 
-    public $table = 'order_state';
+    protected $table = 'order_state';
 
-    public $primaryKey = 'id_order_state';
+    protected $primaryKey = 'id_order_state';
 
     protected $casts = [
         'invoice'      => 'boolean',

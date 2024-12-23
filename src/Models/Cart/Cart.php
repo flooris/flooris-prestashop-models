@@ -29,14 +29,14 @@ class Cart extends PrestashopModel
      *
      * @var string
      */
-    public $table = 'cart';
+    protected $table = 'cart';
 
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
-    public $primaryKey = 'id_cart';
+    protected $primaryKey = 'id_cart';
 
     protected $casts = [
         'id_cart'     => 'integer',

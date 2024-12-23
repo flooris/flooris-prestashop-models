@@ -24,7 +24,7 @@ class OrderPayment extends PrestashopModel
 {
     use HasFactory;
 
-    public $table = 'order_payment';
+    protected $table = 'order_payment';
 
     public static function findByReference($reference): ?OrderPayment
     {

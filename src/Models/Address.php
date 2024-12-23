@@ -19,14 +19,14 @@ class Address extends PrestashopModel
      *
      * @var string
      */
-    public $table = 'address';
+    protected $table = 'address';
 
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
-    public $primaryKey = 'id_address';
+    protected $primaryKey = 'id_address';
 
     /**
      * Get the country the address belongs to.

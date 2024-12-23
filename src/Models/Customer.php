@@ -27,7 +27,7 @@ class Customer extends PrestashopModel
      *
      * @var string
      */
-    public $primaryKey = 'id_customer';
+    protected $primaryKey = 'id_customer';
 
     /**
      * Get the orders of the customer.
