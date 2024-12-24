@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Flooris\Prestashop\Models\Feature\FeatureProduct;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
 
 /**
  * Class Product
@@ -74,7 +75,7 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
  */
 class Product extends PrestashopModel
 {
-    use HasFactory;
+    use HasPrestashopModelFactoryTrait;
 
     /**
      * The table associated with the model.

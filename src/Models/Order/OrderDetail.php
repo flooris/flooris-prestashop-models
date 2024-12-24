@@ -6,6 +6,7 @@ use Flooris\Prestashop\Models\PrestashopModel;
 use Flooris\Prestashop\Models\Product\Product;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
 
 /**
  * Class OrderDetail
@@ -62,7 +63,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class OrderDetail extends PrestashopModel
 {
-    use HasFactory;
+    use HasPrestashopModelFactoryTrait;
 
     /**
      * The table associated with the model.

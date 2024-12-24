@@ -4,6 +4,7 @@ namespace Flooris\Prestashop\Models\Attribute;
 
 use Flooris\Prestashop\Models\PrestashopModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
 
 /**
  * Class AttributeGroup
@@ -17,7 +18,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class AttributeGroup extends PrestashopModel
 {
-    use HasFactory;
+    use HasPrestashopModelFactoryTrait;
 
     /**
      * The table associated with the model.

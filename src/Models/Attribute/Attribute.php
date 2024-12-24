@@ -6,6 +6,7 @@ use Flooris\Prestashop\Traits\Translatable;
 use Flooris\Prestashop\Models\PrestashopModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
 
 /**
  * Class Attribute
@@ -23,7 +24,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class Attribute extends PrestashopModel
 {
-    use Translatable;
+    use Translatable, HasPrestashopModelFactoryTrait;
 
     /**
      * The table associated with the model.

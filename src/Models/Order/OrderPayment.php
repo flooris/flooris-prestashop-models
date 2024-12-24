@@ -22,8 +22,6 @@ use Illuminate\Database\Eloquent\Model;
  */
 class OrderPayment extends PrestashopModel
 {
-    use HasFactory;
-
     protected $table = 'order_payment';
 
     public static function findByReference($reference): ?OrderPayment

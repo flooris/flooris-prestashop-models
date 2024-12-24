@@ -5,6 +5,7 @@ namespace Flooris\Prestashop\Models\Order;
 use Flooris\Prestashop\Models\PrestashopModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
 
 /**
  * Class OrderInvoice
@@ -36,7 +37,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class OrderInvoice extends PrestashopModel
 {
-    use HasFactory;
+    use HasPrestashopModelFactoryTrait;
 
     /**
      * The table associated with the model.

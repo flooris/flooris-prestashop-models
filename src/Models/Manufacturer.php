@@ -3,6 +3,7 @@
 namespace Flooris\Prestashop\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
 
 /**
  * Class Manufacturer
@@ -11,7 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class Manufacturer extends PrestashopModel
 {
-    use HasFactory;
+    use HasPrestashopModelFactoryTrait;
 
     /**
      * The table associated with the model.

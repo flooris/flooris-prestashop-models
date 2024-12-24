@@ -4,6 +4,7 @@ namespace Flooris\Prestashop\Models\Product;
 
 use Flooris\Prestashop\Models\PrestashopModel;
 use Flooris\Prestashop\Traits\CompositeKeyModelTrait;
+use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
 
 /**
  * Class ProductAttributeCombination
@@ -15,7 +16,7 @@ use Flooris\Prestashop\Traits\CompositeKeyModelTrait;
  */
 class ProductAttributeCombination extends PrestashopModel
 {
-    use CompositeKeyModelTrait;
+    use CompositeKeyModelTrait, HasPrestashopModelFactoryTrait;
 
     /**
      * The table associated with the model.

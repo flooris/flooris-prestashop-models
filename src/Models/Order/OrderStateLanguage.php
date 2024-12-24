@@ -18,7 +18,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class OrderStateLanguage extends PrestashopModel
 {
-    use HasFactory, CompositeKeyModelTrait;
+    use CompositeKeyModelTrait;
 
     protected $table = 'order_state_lang';
 
