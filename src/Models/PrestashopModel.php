@@ -35,9 +35,9 @@ abstract class PrestashopModel extends Model
     /**
      * PrestashopModel constructor.
      */
-    public function __construct()
+    public function __construct(array $attributes = [])
     {
-        parent::__construct();
+        parent::__construct($attributes);
 
         $this->setConnection(config('prestashop.db_connection'));
     }
