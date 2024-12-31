@@ -3,6 +3,7 @@
 namespace Flooris\Prestashop\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
 
 /**
  * Class PrestashopModel
@@ -11,6 +12,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 abstract class PrestashopModel extends Model
 {
+    use HasPrestashopModelFactoryTrait;
+
     /**
      * The name of the "created at" column.
      *

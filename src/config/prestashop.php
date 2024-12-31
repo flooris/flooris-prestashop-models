@@ -3,7 +3,7 @@
 return [
 
     'seeder' => [
-        'payment_methods' => [
+        'payment_methods'   => [
             'iDEAL',
             'PAYPAL_EXPRESS_CHECKOUT',
             'Visa',
@@ -17,8 +17,8 @@ return [
             'Package: Extra large',
             'Package: # x ## pieces',
             'Package: # x ## kg',
-            'Package: ## + # kg'
-        ]
+            'Package: ## + # kg',
+        ],
     ],
 
     'db_connection' => null,

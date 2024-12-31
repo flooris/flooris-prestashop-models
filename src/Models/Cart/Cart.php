@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models;
+namespace Flooris\Prestashop\Models\Cart;
 
 use Illuminate\Support\Carbon;
-use Flooris\Prestashop\Models\Customer;
 use Illuminate\Database\Eloquent\Collection;
 use Flooris\Prestashop\Models\PrestashopModel;
 use Flooris\Prestashop\Models\Product\Product;
+use Flooris\Prestashop\Models\Customer\Customer;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use App\Exceptions\CartAddProductMismatchException;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -68,7 +68,7 @@ class Cart extends PrestashopModel
         return $this->belongsTo(Customer::class, 'id_customer');
     }
 
-    public function upQuantityinCart(Product $product, ?ProductAttribute $productAttribute = null, int $quantity = 1)
+    public function upQuantityinCart(Product $product, ?ProductAttribute $productAttribute = null, int $quantity = 1): bool
     {
         if ($cartProduct = $this->hasProductInCart($product, $productAttribute)) {
             $cartProduct->quantity += $quantity;
