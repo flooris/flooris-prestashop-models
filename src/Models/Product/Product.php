@@ -2,15 +2,17 @@
 
 namespace Flooris\Prestashop\Models\Product;
 
-use Flooris\Prestashop\Models\Category;
+use Flooris\Prestashop\Models\Shop\Shop;
 use Flooris\Prestashop\Models\Image\Image;
-use Flooris\Prestashop\Models\Manufacturer;
 use Flooris\Prestashop\Models\PrestashopModel;
 use Flooris\Prestashop\Models\Feature\Feature;
+use Flooris\Prestashop\Models\Category\Category;
+use Flooris\Prestashop\Models\Supplier\Supplier;
+use Flooris\Prestashop\Models\Tax\TaxRulesGroup;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Flooris\Prestashop\Models\Feature\FeatureProduct;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Flooris\Prestashop\Models\Manufacturer\Manufacturer;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
 
@@ -75,7 +77,7 @@ use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
  */
 class Product extends PrestashopModel
 {
-    use HasPrestashopModelFactoryTrait;
+
 
     /**
      * The table associated with the model.
@@ -103,6 +105,16 @@ class Product extends PrestashopModel
     }
 
     /**
+     * Get the supplier the product belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function supplier(): BelongsTo
+    {
+        return $this->belongsTo(Supplier::class, 'id_supplier', 'id_supplier');
+    }
+
+    /**
      * Get the manufacturer the product belongs to.
      *
      * @return BelongsTo
@@ -110,6 +122,26 @@ class Product extends PrestashopModel
     public function manufacturer(): BelongsTo
     {
         return $this->belongsTo(Manufacturer::class, 'id_manufacturer', 'id_manufacturer');
+    }
+
+    /**
+     * Get the shop default the product belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function shopDefault(): BelongsTo
+    {
+        return $this->belongsTo(Shop::class, 'id_shop_default', 'id_shop');
+    }
+
+    /**
+     * Get the tax rules group the product belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function taxRulesGroup(): BelongsTo
+    {
+        return $this->belongsTo(TaxRulesGroup::class, 'id_tax_rules_group', 'id_tax_rules_group');
     }
 
     public function featureProducts(): HasMany
@@ -129,14 +161,14 @@ class Product extends PrestashopModel
         );
     }
 
-    public function images(): HasMany
-    {
-        return $this->hasMany(Image::class, 'id_product');
-    }
-
     public function getCoverImageAttribute()
     {
         return $this->images()->where('cover')->first();
+    }
+
+    public function images(): HasMany
+    {
+        return $this->hasMany(Image::class, 'id_product');
     }
 
     public function translations(): HasMany
