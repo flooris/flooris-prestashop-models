@@ -2,15 +2,14 @@
 
 namespace Flooris\Prestashop\Models\Product;
 
-use Flooris\Prestashop\Models\Category;
 use Flooris\Prestashop\Models\Image\Image;
 use Flooris\Prestashop\Models\Manufacturer;
 use Flooris\Prestashop\Models\PrestashopModel;
 use Flooris\Prestashop\Models\Feature\Feature;
+use Flooris\Prestashop\Models\Category\Category;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Flooris\Prestashop\Models\Feature\FeatureProduct;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
 
