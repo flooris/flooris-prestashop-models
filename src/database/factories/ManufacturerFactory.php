@@ -3,8 +3,8 @@
 namespace Flooris\Prestashop\Database\Factories;
 
 use Carbon\Carbon;
-use Flooris\Prestashop\Models\Manufacturer;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Flooris\Prestashop\Models\Manufacturer\Manufacturer;
 
 /**
  * Class ManufacturerFactory

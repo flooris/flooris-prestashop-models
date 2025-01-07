@@ -48,7 +48,7 @@ class CategoryFeatureValue extends PrestashopModel
      */
     public function category(): BelongsTo
     {
-        return $this->belongsTo(Category::class, 'id_category');
+        return $this->belongsTo(Category::class, 'id_category', 'id_category');
     }
 
     /**
@@ -58,7 +58,7 @@ class CategoryFeatureValue extends PrestashopModel
      */
     public function featureValue(): BelongsTo
     {
-        return $this->belongsTo(FeatureValue::class, 'id_feature_value');
+        return $this->belongsTo(FeatureValue::class, 'id_feature_value', 'id_feature_value');
     }
 
     /**
@@ -68,6 +68,6 @@ class CategoryFeatureValue extends PrestashopModel
      */
     public function shop(): BelongsTo
     {
-        return $this->belongsTo(Shop::class, 'id_shop');
+        return $this->belongsTo(Shop::class, 'id_shop', 'id_shop');
     }
 }

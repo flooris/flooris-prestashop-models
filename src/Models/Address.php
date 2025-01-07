@@ -2,8 +2,8 @@
 
 namespace Flooris\Prestashop\Models;
 
+use Flooris\Prestashop\Models\Country\Country;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
 
 /**

@@ -51,7 +51,7 @@ class CategoryFilter extends PrestashopModel
      */
     public function shop(): BelongsTo
     {
-        return $this->belongsTo(Shop::class, 'id_shop');
+        return $this->belongsTo(Shop::class, 'id_shop', 'id_shop');
     }
 
     /**
@@ -61,6 +61,6 @@ class CategoryFilter extends PrestashopModel
      */
     public function category(): BelongsTo
     {
-        return $this->belongsTo(Category::class, 'id_category');
+        return $this->belongsTo(Category::class, 'id_category', 'id_category');
     }
 }

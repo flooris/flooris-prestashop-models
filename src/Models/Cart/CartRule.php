@@ -7,7 +7,6 @@ use Illuminate\Support\Carbon;
 use Flooris\Prestashop\Models\Customer;
 use Flooris\Prestashop\Models\PrestashopModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class CartRule
@@ -98,6 +97,6 @@ class CartRule extends PrestashopModel
      */
     public function customer(): BelongsTo
     {
-        return $this->belongsTo(Customer::class, 'id_customer');
+        return $this->belongsTo(Customer::class, 'id_customer', 'id_customer');
     }
 }

@@ -1,14 +1,14 @@
 <?php
 
-namespace Flooris\Prestashop\Models;
+namespace Flooris\Prestashop\Models\Manufacturer;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Flooris\Prestashop\Models\PrestashopModel;
 use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
 
 /**
  * Class Manufacturer
  *
- * @package Flooris\Prestashop\Models
+ * @package Flooris\Prestashop\Models\Manufacturer
  */
 class Manufacturer extends PrestashopModel
 {

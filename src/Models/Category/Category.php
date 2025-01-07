@@ -66,7 +66,7 @@ class Category extends PrestashopModel
      */
     public function parent(): BelongsTo
     {
-        return $this->belongsTo(Category::class, 'id_parent');
+        return $this->belongsTo(Category::class, 'id_parent', 'id_category');
     }
 
     /**
@@ -76,6 +76,6 @@ class Category extends PrestashopModel
      */
     public function shopDefault(): BelongsTo
     {
-        return $this->belongsTo(Shop::class, 'id_shop_default');
+        return $this->belongsTo(Shop::class, 'id_shop_default', 'id_shop');
     }
 }

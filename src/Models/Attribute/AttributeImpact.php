@@ -57,7 +57,7 @@ class AttributeImpact extends PrestashopModel
      */
     public function product(): BelongsTo
     {
-        return $this->belongsTo(Product::class, 'id_product');
+        return $this->belongsTo(Product::class, 'id_product', 'id_product');
     }
 
     /**
@@ -67,6 +67,6 @@ class AttributeImpact extends PrestashopModel
      */
     public function attribute(): BelongsTo
     {
-        return $this->belongsTo(Attribute::class, 'id_attribute');
+        return $this->belongsTo(Attribute::class, 'id_attribute', 'id_attribute');
     }
 }

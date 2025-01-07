@@ -80,6 +80,6 @@ class Carrier extends PrestashopModel
      */
     public function taxRulesGroup(): ?BelongsTo
     {
-        return $this->belongsTo(TaxRulesGroup::class, 'id_tax_rules_group');
+        return $this->belongsTo(TaxRulesGroup::class, 'id_tax_rules_group', 'id_tax_rules_group');
     }
 }

@@ -7,31 +7,31 @@ use Flooris\Prestashop\Models\PrestashopModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * Class CategoryHeader
+ * Class CategoryPopular
  *
- * @property int $id_category_header
- * @property int $id_category
- * @property string $content
+ * @property int $id_category_popular
  * @property int $id_shop
+ * @property int $id_category
+ * @property int $id_parent
  * @property ?int $position
  *
  * @package Flooris\Prestashop\Models\Category
  */
-class CategoryHeader extends PrestashopModel
+class CategoryPopular extends PrestashopModel
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'category_header';
+    protected $table = 'category_popular';
 
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
-    protected $primaryKey = 'id_category_header';
+    protected $primaryKey = 'id_category_popular';
 
     /**
      * Indicates if the model should be timestamped.
@@ -41,7 +41,7 @@ class CategoryHeader extends PrestashopModel
     public $timestamps = false;
 
     /**
-     * Get the category that the category header belongs to.
+     * Get the category that the category feature value belongs to.
      *
      * @return BelongsTo
      */
@@ -51,7 +51,17 @@ class CategoryHeader extends PrestashopModel
     }
 
     /**
-     * Get the shop that the category header belongs to.
+     * Get the parent category that the category popular belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function parent(): BelongsTo
+    {
+        return $this->belongsTo(Category::class, 'id_parent', 'id_category');
+    }
+
+    /**
+     * Get the shop that the category feature value belongs to.
      *
      * @return BelongsTo
      */

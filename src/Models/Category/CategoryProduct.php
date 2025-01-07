@@ -1,0 +1,43 @@
+<?php
+
+namespace Flooris\Prestashop\Models\Category;
+
+use Flooris\Prestashop\Models\PrestashopModel;
+use Flooris\Prestashop\Traits\CompositeKeyModelTrait;
+
+/**
+ * Class CategoryProduct
+ *
+ * @property int $id_category
+ * @property int $id_product
+ * @property int $position
+ *
+ * @package Flooris\Prestashop\Models\Category
+ */
+class CategoryProduct extends PrestashopModel
+{
+    use CompositeKeyModelTrait;
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'category_product';
+
+    /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = ['id_category', 'id_product'];
+
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+    public $incrementing = false;
+}

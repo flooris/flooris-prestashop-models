@@ -66,7 +66,7 @@ class CartProduct extends PrestashopModel
      */
     public function cart(): BelongsTo
     {
-        return $this->belongsTo(Cart::class, 'id_cart');
+        return $this->belongsTo(Cart::class, 'id_cart', 'id_cart');
     }
 
     /**
@@ -76,7 +76,7 @@ class CartProduct extends PrestashopModel
      */
     public function product(): BelongsTo
     {
-        return $this->belongsTo(Product::class, 'id_product');
+        return $this->belongsTo(Product::class, 'id_product', 'id_product');
     }
 
     /**
@@ -86,7 +86,7 @@ class CartProduct extends PrestashopModel
      */
     public function productAttribute(): BelongsTo
     {
-        return $this->belongsTo(ProductAttribute::class, 'id_product_attribute');
+        return $this->belongsTo(ProductAttribute::class, 'id_product_attribute', 'id_product_attribute');
     }
 
     /**
@@ -96,7 +96,7 @@ class CartProduct extends PrestashopModel
      */
     public function shop(): BelongsTo
     {
-        return $this->belongsTo(Shop::class, 'id_shop');
+        return $this->belongsTo(Shop::class, 'id_shop', 'id_shop');
     }
 
     /**
@@ -106,6 +106,6 @@ class CartProduct extends PrestashopModel
      */
     public function addressDelivery(): HasOne
     {
-        return $this->hasOne(Address::class, 'id_address_delivery');
+        return $this->hasOne(Address::class, 'id_address', 'id_address_delivery');
     }
 }

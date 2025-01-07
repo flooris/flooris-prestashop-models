@@ -1,15 +1,15 @@
 <?php
 
-namespace Flooris\Prestashop\Models;
+namespace Flooris\Prestashop\Models\SpecificPrice;
 
 
 use Illuminate\Support\Carbon;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Flooris\Prestashop\Models\PrestashopModel;
 
 /**
  * Class SpecificPrice
  *
- * @package Flooris\Prestashop\Models
+ * @package Flooris\Prestashop\Models\SpecificPrice
  * @property int         $id_specific_price
  * @property int         $id_specific_price_rule
  * @property int         $id_cart
