@@ -20,7 +20,7 @@ use Flooris\Prestashop\Models\Product\ProductAttribute;
  * @property int $id_address_delivery
  * @property int $id_shop
  * @property int $id_product_attribute
- * @property int $id_quantity
+ * @property int $quantity
  * @property Carbon $date_add
  *
  * @package Flooris\Prestashop\Models\Cart
@@ -41,13 +41,6 @@ class CartProduct extends PrestashopModel
      * @var string
      */
     protected $primaryKey = ['id_cart', 'id_product', 'id_product_attribute', 'id_address_delivery'];
-
-    /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var bool
-     */
-    public $timestamps = false; //TODO
 
     /**
      * The attributes that should be cast to specific types.

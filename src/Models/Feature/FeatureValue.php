@@ -7,6 +7,15 @@ use Flooris\Prestashop\Models\PrestashopModel;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * Class FeatureValue
+ *
+ * @property int      $id_feature_value
+ * @property int      $id_feature
+ * @property ?boolean $custom
+ *
+ * @package Flooris\Prestashop\Models\Feature
+ */
 class FeatureValue extends PrestashopModel
 {
     use Translatable;
@@ -31,6 +40,15 @@ class FeatureValue extends PrestashopModel
      * @var bool
      */
     public $timestamps = false;
+
+    /**
+     * The attributes that should be cast to specific types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'custom' => 'boolean',
+    ];
 
     /**
      * Get feature the value belongs to.

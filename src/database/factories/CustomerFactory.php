@@ -2,61 +2,54 @@
 
 namespace Flooris\Prestashop\Database\Factories;
 
-use Carbon\Carbon;
+use Illuminate\Support\Carbon;
+use Flooris\Prestashop\Models\Language;
 use Flooris\Prestashop\Models\Customer;
+use Flooris\Prestashop\Models\Shop\Shop;
+use Flooris\Prestashop\Models\Risk\Risk;
+use Flooris\Prestashop\Models\Group\Group;
+use Flooris\Prestashop\Models\Gender\Gender;
+use Flooris\Prestashop\Models\Shop\ShopGroup;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * Class CustomerFactory
- *
- * @package Flooris\Prestashop\Database\Factories
- */
 class CustomerFactory extends Factory
 {
-    /**
-     * The name of the factory's corresponding model.
-     *
-     * @var string
-     */
     protected $model = Customer::class;
 
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
     public function definition(): array
     {
         return [
-            'id_shop_group'              => 1,
-            'id_shop'                    => 1,
-            'id_gender'                  => $this->faker->randomElement([0, 1, 2]),
-            'id_lang'                    => 1,
-            'id_risk'                    => 1,
-            'company'                    => null,
-            'siret'                      => null,
-            'ape'                        => null,
-            'lastname'                   => substr($this->faker->lastName, 0, 32),
-            'firstname'                  => substr($this->faker->lastName, 0, 32),
-            'email'                      => $this->faker->email,
-            'passwd'                     => $this->faker->md5,
-            'last_passwd_gen'            => date('Y-m-d H:i:s'),
-            'birthday'                   => $this->faker->dateTime,
-            'newsletter'                 => 0,
-            'ip_registration_newsletter' => null,
-            'newsletter_date_add'        => null,
-            'optin'                      => 0,
-            'website'                    => null,
-            'outstanding_allow_amount'   => 0,
-            'show_public_prices'         => false,
-            'secure_key'                 => $this->faker->md5,
-            'note'                       => null,
-            'active'                     => true,
-            'is_guest'                   => $is_guest = $this->faker->boolean(10),
-            'id_default_group'           => $is_guest ? 2 : 3,
-            'deleted'                    => false,
+            'company'                    => $this->faker->company(),
+            'siret'                      => $this->faker->word(),
+            'ape'                        => $this->faker->word(),
+            'firstname'                  => $this->faker->firstName(),
+            'lastname'                   => $this->faker->lastName(),
+            'email'                      => $this->faker->unique()->safeEmail(),
+            'passwd'                     => $this->faker->word(),
+            'last_passwd_gen'            => Carbon::now(),
+            'birthday'                   => Carbon::now(),
+            'newsletter'                 => $this->faker->boolean(),
+            'ip_registration_newsletter' => $this->faker->ipv4(),
+            'newsletter_date_add'        => Carbon::now(),
+            'optin'                      => $this->faker->boolean(),
+            'website'                    => $this->faker->word(),
+            'outstanding_allow_amount'   => $this->faker->randomFloat(),
+            'show_public_prices'         => $this->faker->boolean(),
+            'max_payment_days'           => $this->faker->randomNumber(),
+            'secure_key'                 => $this->faker->word(),
+            'note'                       => $this->faker->word(),
+            'active'                     => $this->faker->boolean(),
+            'is_guest'                   => $this->faker->boolean(),
+            'deleted'                    => $this->faker->boolean(),
             'date_add'                   => Carbon::now(),
             'date_upd'                   => Carbon::now(),
+
+            'id_shop_group'    => ShopGroup::factory(),
+            'id_shop'          => Shop::factory(),
+            'id_gender'        => Gender::factory(),
+            'id_default_group' => Group::factory(),
+            'id_lang'          => Language::factory(),
+            'id_risk'          => Risk::factory(),
         ];
     }
 }

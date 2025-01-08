@@ -2,6 +2,7 @@
 
 namespace Flooris\Prestashop\Models\Attribute;
 
+use Flooris\Prestashop\Enums\GroupTypeEnum;
 use Flooris\Prestashop\Models\PrestashopModel;
 use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
 
@@ -39,4 +40,13 @@ class AttributeGroup extends PrestashopModel
      * @var bool
      */
     public $timestamps = false;
+
+    /**
+     * The attributes that should be cast to specific types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'group_type' => GroupTypeEnum::class,
+    ];
 }

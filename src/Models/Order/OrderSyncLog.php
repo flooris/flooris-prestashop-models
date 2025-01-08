@@ -4,6 +4,7 @@ namespace Flooris\Prestashop\Models\Order;
 
 use Illuminate\Support\Carbon;
 use Flooris\Prestashop\Models\PrestashopModel;
+use Flooris\Prestashop\Enums\OrderSyncStatusEnum;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
@@ -19,14 +20,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class OrderSyncLog extends PrestashopModel
 {
-    const STATUS_DATA_REQUESTED = 'DATA-REQUESTED';
-    const STATUS_DATA_PROVIDED = 'DATA-PROVIDED';
-    const STATUS_SUCCESS = 'SUCCESS';
-    const STATUS_FAILED_XML_INVALID = 'FAILED-XML-INVALID';
-    const STATUS_FAILED_XML_INCOMPLETE = 'FAILED-XML-INCOMPLETE';
-    const STATUS_FAILED_IMPORT = 'FAILED-IMPORT';
-    const STATUS_WONT_BE_IMPORTED = 'WONT-BE-IMPORTED';
-
     /**
      * The table associated with the model.
      *
@@ -47,6 +40,7 @@ class OrderSyncLog extends PrestashopModel
      * @var array
      */
     protected $casts = [
+        'status'   => OrderSyncStatusEnum::class,
         'date_upd' => 'Carbon',
     ];
 
@@ -58,25 +52,5 @@ class OrderSyncLog extends PrestashopModel
     public function orderSyncStatus(): BelongsTo
     {
         return $this->belongsTo(OrderSyncStatus::class, 'id_order_sync_status', 'id_order_sync_status');
-    }
-
-    /**
-     * Get the status attribute with correct enum.
-     *
-     * @return string
-     */
-    public function getStatusAttribute(): string
-    {
-        $labels = [
-            self::STATUS_DATA_REQUESTED        => 'DATA-REQUESTED',
-            self::STATUS_DATA_PROVIDED         => 'DATA-PROVIDED',
-            self::STATUS_SUCCESS               => 'SUCCESS',
-            self::STATUS_FAILED_XML_INVALID    => 'FAILED-XML-INVALID',
-            self::STATUS_FAILED_XML_INCOMPLETE => 'FAILED-XML-INCOMPLETE',
-            self::STATUS_FAILED_IMPORT         => 'FAILED-IMPORT',
-            self::STATUS_WONT_BE_IMPORTED      => 'WONT-BE-IMPORTED',
-        ];
-
-        return $labels[$this->status] ?? 'Unknown';
     }
 }

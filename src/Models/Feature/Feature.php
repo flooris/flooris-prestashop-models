@@ -6,6 +6,14 @@ use Flooris\Prestashop\Traits\Translatable;
 use Flooris\Prestashop\Models\PrestashopModel;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * Class ClassName //TODO
+ *
+ * @property int $id_feature
+ * @property int $position
+ *
+ * @package Flooris\Prestashop\Models\ClassName //TODO
+ */
 class Feature extends PrestashopModel
 {
     use Translatable;
