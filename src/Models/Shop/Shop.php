@@ -2,8 +2,6 @@
 
 namespace Flooris\Prestashop\Models\Shop;
 
-use App\Models\ShopAlternateLanguage;
-use Flooris\Prestashop\Models\Configuration;
 use Flooris\Prestashop\Models\PrestashopModel;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
@@ -26,8 +24,8 @@ class Shop extends PrestashopModel
         return $this->hasOne(ShopUrl::class, 'id_shop');
     }
 
-    public function alternateLanguage(): HasOne
+    public function alternateLanguages(): HasOne
     {
-        return $this->hasOne(ShopAlternateLanguage::class, 'id_shop');
+        return $this->hasOne(ShopAlternateLanguages::class, 'id_shop');
     }
 }

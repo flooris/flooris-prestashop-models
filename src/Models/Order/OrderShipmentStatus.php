@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace Flooris\Prestashop\Models\Order;
 
 use Flooris\Prestashop\Models\PrestashopModel;
 

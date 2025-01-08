@@ -5,14 +5,13 @@ namespace Flooris\Prestashop\Models\Order;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection;
 use Flooris\Prestashop\Models\Address;
-use Flooris\Prestashop\Models\CartRule;
 use Flooris\Prestashop\Models\Customer;
 use Illuminate\Database\Query\JoinClause;
+use Flooris\Prestashop\Models\Cart\CartRule;
 use Flooris\Prestashop\Models\PrestashopModel;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
 

@@ -5,7 +5,6 @@ namespace Flooris\Prestashop\Models\Product;
 use Flooris\Prestashop\Models\PrestashopModel;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
 
 /**

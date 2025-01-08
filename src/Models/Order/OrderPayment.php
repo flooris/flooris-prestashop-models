@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace Flooris\Prestashop\Models\Order;
 
 use Flooris\Prestashop\Models\PrestashopModel;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property int         $id_order_payment
@@ -26,6 +24,8 @@ class OrderPayment extends PrestashopModel
 
     public static function findByReference($reference): ?OrderPayment
     {
-        return self::query()->where('order_reference', $reference)->first();
+        /** @var ?OrderPayment $output */
+        $output = self::query()->where('order_reference', $reference)->first();
+        return $output;
     }
 }

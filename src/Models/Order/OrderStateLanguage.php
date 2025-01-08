@@ -4,7 +4,6 @@ namespace Flooris\Prestashop\Models\Order;
 
 use Flooris\Prestashop\Models\PrestashopModel;
 use Flooris\Prestashop\Traits\CompositeKeyModelTrait;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class OrderStateLanguage

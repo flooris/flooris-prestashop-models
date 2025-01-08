@@ -5,7 +5,6 @@ namespace Flooris\Prestashop\Models\Feature;
 use Flooris\Prestashop\Traits\Translatable;
 use Flooris\Prestashop\Models\PrestashopModel;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Feature extends PrestashopModel
 {

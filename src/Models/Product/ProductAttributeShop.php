@@ -4,7 +4,6 @@ namespace Flooris\Prestashop\Models\Product;
 
 use Flooris\Prestashop\Models\PrestashopModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Builder;
 use Flooris\Prestashop\Traits\CompositeKeyModelTrait;
 
 /**

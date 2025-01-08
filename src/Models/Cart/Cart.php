@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace Flooris\Prestashop\Models\Cart;
 
 use Illuminate\Support\Carbon;
 use Flooris\Prestashop\Models\Customer;
@@ -68,7 +68,7 @@ class Cart extends PrestashopModel
         return $this->belongsTo(Customer::class, 'id_customer');
     }
 
-    public function upQuantityinCart(Product $product, ?ProductAttribute $productAttribute = null, int $quantity = 1)
+    public function upQuantityinCart(Product $product, ?ProductAttribute $productAttribute = null, int $quantity = 1): bool
     {
         if ($cartProduct = $this->hasProductInCart($product, $productAttribute)) {
             $cartProduct->quantity += $quantity;

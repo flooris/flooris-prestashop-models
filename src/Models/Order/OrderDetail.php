@@ -5,7 +5,6 @@ namespace Flooris\Prestashop\Models\Order;
 use Flooris\Prestashop\Models\PrestashopModel;
 use Flooris\Prestashop\Models\Product\Product;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
 
 /**
@@ -87,7 +86,7 @@ class OrderDetail extends PrestashopModel
     public $timestamps = false;
 
     /**
-     * Get the order the order detail belongs to.
+     * Get the order that the order detail belongs to.
      *
      * @return BelongsTo
      */

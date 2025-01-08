@@ -3,7 +3,6 @@
 namespace Flooris\Prestashop\Models\Attribute;
 
 use Flooris\Prestashop\Models\PrestashopModel;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
 
 /**

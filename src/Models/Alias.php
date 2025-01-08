@@ -2,7 +2,6 @@
 
 namespace Flooris\Prestashop\Models;
 
-use Flooris\Prestashop\Models\PrestashopModel;
 
 /**
  * Class Alias

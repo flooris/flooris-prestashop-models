@@ -2,7 +2,6 @@
 
 namespace Flooris\Prestashop\Models;
 
-use Flooris\Prestashop\Models\PrestashopModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Flooris\Prestashop\Models\Product\ProductAttribute;
 

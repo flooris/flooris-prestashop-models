@@ -2,7 +2,6 @@
 
 namespace Flooris\Prestashop\Models\Cart;
 
-use App\Models\Cart;
 use Illuminate\Support\Carbon;
 use Flooris\Prestashop\Models\Address;
 use Flooris\Prestashop\Models\Shop\Shop;

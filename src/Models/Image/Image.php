@@ -2,10 +2,8 @@
 
 namespace Flooris\Prestashop\Models\Image;
 
-use Illuminate\Support\Str;
 use Flooris\Prestashop\Models\Shop\Shop;
 use Flooris\Prestashop\Models\PrestashopModel;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class Image extends PrestashopModel
@@ -26,7 +24,7 @@ class Image extends PrestashopModel
         'end_date' => 'date',
     ];
 
-    public function imageurl($size = self::MEDIUM_DEFAULT, $name = null)
+    public function imageurl($size = self::MEDIUM_DEFAULT, $name = null): string
     {
         if (! $name) {
             $name = 'unnamed';

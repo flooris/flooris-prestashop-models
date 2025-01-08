@@ -2,9 +2,7 @@
 
 namespace Flooris\Prestashop;
 
-use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Contracts\Container\BindingResolutionException;
 
 class PrestashopServiceProvider extends ServiceProvider
 {
