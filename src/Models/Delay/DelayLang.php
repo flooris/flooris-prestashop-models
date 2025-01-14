@@ -8,7 +8,7 @@ use Flooris\Prestashop\Traits\CompositeKeyModelTrait;
 /**
  * Class DelayLang
  *
- * @property int    $id_Delay
+ * @property int    $id_delay
  * @property int    $id_lang
  * @property string $description
  *
