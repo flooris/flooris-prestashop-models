@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 /**
  * Class ConfigurationKpi
  *
- * @property int    $id_configuration
+ * @property int    $id_configuration_kpi
  * @property ?int    $id_shop_group
  * @property ?int    $id_shop
  * @property ?string $name
