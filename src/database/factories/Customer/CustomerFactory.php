@@ -1,15 +1,15 @@
 <?php
 
-namespace Flooris\Prestashop\Database\Factories;
+namespace Flooris\Prestashop\Database\Factories\Customer;
 
 use Illuminate\Support\Carbon;
 use Flooris\Prestashop\Models\Language;
-use Flooris\Prestashop\Models\Customer;
 use Flooris\Prestashop\Models\Shop\Shop;
 use Flooris\Prestashop\Models\Risk\Risk;
 use Flooris\Prestashop\Models\Group\Group;
 use Flooris\Prestashop\Models\Gender\Gender;
 use Flooris\Prestashop\Models\Shop\ShopGroup;
+use Flooris\Prestashop\Models\Customer\Customer;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CustomerFactory extends Factory

@@ -4,7 +4,17 @@ namespace Flooris\Prestashop\Models\SpecificPrice;
 
 
 use Illuminate\Support\Carbon;
+use Flooris\Prestashop\Models\Cart\Cart;
+use Flooris\Prestashop\Models\Shop\Shop;
+use Flooris\Prestashop\Models\Group\Group;
+use Flooris\Prestashop\Models\Shop\ShopGroup;
 use Flooris\Prestashop\Models\PrestashopModel;
+use Flooris\Prestashop\Models\Product\Product;
+use Flooris\Prestashop\Models\Country\Country;
+use Flooris\Prestashop\Models\Currency\Currency;
+use Flooris\Prestashop\Models\Customer\Customer;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Flooris\Prestashop\Models\Product\ProductAttribute;
 
 /**
  * Class SpecificPrice
@@ -80,4 +90,104 @@ class SpecificPrice extends PrestashopModel
         'from_quantity'          => 1,
         'reduction_tax'          => 1,
     ];
+
+    /**
+     * Get the specific price rule that the specific price belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function specificPriceRule(): BelongsTo
+    {
+        return $this->belongsTo(SpecificPriceRule::class, 'id_specific_price_rule', 'id_specific_price_rule');
+    }
+
+    /**
+     * Get the cart that the specific price belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function cart(): BelongsTo
+    {
+        return $this->belongsTo(Cart::class, 'id_cart', 'id_cart');
+    }
+
+    /**
+     * Get the product that the specific price belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function product(): BelongsTo
+    {
+        return $this->belongsTo(Product::class, 'id_product', 'id_product');
+    }
+
+    /**
+     * Get the shop that the specific price belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function shop(): BelongsTo
+    {
+        return $this->belongsTo(Shop::class, 'id_shop', 'id_shop');
+    }
+
+    /**
+     * Get the shop group that the specific price belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function shopGroup(): BelongsTo
+    {
+        return $this->belongsTo(ShopGroup::class, 'id_shop_group', 'id_shop_group');
+    }
+
+    /**
+     * Get the currency that the specific price belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function currency(): BelongsTo
+    {
+        return $this->belongsTo(Currency::class, 'id_currency', 'id_currency');
+    }
+
+    /**
+     * Get the country that the specific price belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function country(): BelongsTo
+    {
+        return $this->belongsTo(Country::class, 'id_country', 'id_country');
+    }
+
+    /**
+     * Get the group that the specific price belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function group(): BelongsTo
+    {
+        return $this->belongsTo(Group::class, 'id_group', 'id_group');
+    }
+
+    /**
+     * Get the customer that the specific price belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function customer(): BelongsTo
+    {
+        return $this->belongsTo(Customer::class, 'id_customer', 'id_customer');
+    }
+
+    /**
+     * Get the product attribute that the specific price belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function productAttribute(): BelongsTo
+    {
+        return $this->belongsTo(ProductAttribute::class, 'id_product_attribute', 'id_product_attribute');
+    }
 }

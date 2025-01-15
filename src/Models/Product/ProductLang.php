@@ -48,7 +48,6 @@ class ProductLang extends PrestashopModel
      */
     const UPDATED_AT = null;
 
-
     /**
      * The table associated with the model.
      *

@@ -3,6 +3,7 @@
 namespace Flooris\Prestashop\Models\Shop;
 
 use Flooris\Prestashop\Models\PrestashopModel;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @property int    $id_shop_url
@@ -16,5 +17,34 @@ use Flooris\Prestashop\Models\PrestashopModel;
  */
 class ShopUrl extends PrestashopModel
 {
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
     protected $table = 'shop_url';
+
+    /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'id_shop_url';
+
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
+     * Get the shop that the shop url belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function shop(): BelongsTo
+    {
+        return $this->belongsTo(Shop::class, 'id_shop', 'id_shop');
+    }
 }

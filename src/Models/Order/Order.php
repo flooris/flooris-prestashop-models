@@ -5,10 +5,16 @@ namespace Flooris\Prestashop\Models\Order;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection;
 use Flooris\Prestashop\Models\Address;
-use Flooris\Prestashop\Models\Customer;
+use Flooris\Prestashop\Models\Language;
+use Flooris\Prestashop\Models\Shop\Shop;
+use Flooris\Prestashop\Models\Cart\Cart;
 use Illuminate\Database\Query\JoinClause;
 use Flooris\Prestashop\Models\Cart\CartRule;
+use Flooris\Prestashop\Models\Shop\ShopGroup;
 use Flooris\Prestashop\Models\PrestashopModel;
+use Flooris\Prestashop\Models\Carrier\Carrier;
+use Flooris\Prestashop\Models\Customer\Customer;
+use Flooris\Prestashop\Models\Currency\Currency;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -130,6 +136,66 @@ class Order extends PrestashopModel
     public function customer(): BelongsTo
     {
         return $this->belongsTo(Customer::class, 'id_customer');
+    }
+
+    /**
+     * Get the shop group that the order belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function shopGroup(): BelongsTo
+    {
+        return $this->belongsTo(ShopGroup::class, 'id_shop_group', 'id_shop_group');
+    }
+
+    /**
+     * Get the shop that the order belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function shop(): BelongsTo
+    {
+        return $this->belongsTo(Shop::class, 'id_shop', 'id_shop');
+    }
+
+    /**
+     * Get the carrier that the order belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function carrier(): BelongsTo
+    {
+        return $this->belongsTo(Carrier::class, 'id_carrier', 'id_carrier');
+    }
+
+    /**
+     * Get the language that the order belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function lang(): BelongsTo
+    {
+        return $this->belongsTo(Language::class, 'id_lang', 'id_lang');
+    }
+
+    /**
+     * Get the cart that the order belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function cart(): BelongsTo
+    {
+        return $this->belongsTo(Cart::class, 'id_cart', 'id_cart');
+    }
+
+    /**
+     * Get the currency that the order belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function currency(): BelongsTo
+    {
+        return $this->belongsTo(Currency::class, 'id_currency', 'id_currency');
     }
 
     /**

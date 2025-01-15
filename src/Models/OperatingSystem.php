@@ -6,7 +6,7 @@ namespace Flooris\Prestashop\Models;
 /**
  * Class OperatingSystem
  *
- * @property int    $id_web_browser
+ * @property int     $id_web_browser
  * @property ?string $name
  *
  * @package Flooris\Prestashop\Models

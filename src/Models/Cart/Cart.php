@@ -3,10 +3,10 @@
 namespace Flooris\Prestashop\Models\Cart;
 
 use Illuminate\Support\Carbon;
-use Flooris\Prestashop\Models\Customer;
 use Illuminate\Database\Eloquent\Collection;
 use Flooris\Prestashop\Models\PrestashopModel;
 use Flooris\Prestashop\Models\Product\Product;
+use Flooris\Prestashop\Models\Customer\Customer;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use App\Exceptions\CartAddProductMismatchException;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

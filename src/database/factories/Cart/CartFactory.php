@@ -4,9 +4,9 @@ namespace Flooris\Prestashop\Database\Factories\Cart;
 
 use Illuminate\Support\Carbon;
 use Flooris\Prestashop\Models\Guest;
-use Flooris\Prestashop\Models\Customer;
 use Flooris\Prestashop\Models\Cart\Cart;
 use Flooris\Prestashop\Models\Shop\Shop;
+use Flooris\Prestashop\Models\Customer\Customer;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CartFactory extends Factory

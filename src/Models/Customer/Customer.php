@@ -1,14 +1,16 @@
 <?php
 
-namespace Flooris\Prestashop\Models;
+namespace Flooris\Prestashop\Models\Customer;
 
 use Illuminate\Support\Carbon;
+use Flooris\Prestashop\Models\Language;
 use Flooris\Prestashop\Models\Shop\Shop;
 use Flooris\Prestashop\Models\Risk\Risk;
 use Flooris\Prestashop\Models\Order\Order;
 use Flooris\Prestashop\Models\Group\Group;
 use Flooris\Prestashop\Models\Gender\Gender;
 use Flooris\Prestashop\Models\Shop\ShopGroup;
+use Flooris\Prestashop\Models\PrestashopModel;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;

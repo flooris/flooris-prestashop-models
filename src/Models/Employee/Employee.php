@@ -4,9 +4,12 @@ namespace Flooris\Prestashop\Models\Employee;
 
 use Illuminate\Support\Carbon;
 use Flooris\Prestashop\Models\Language;
+use Flooris\Prestashop\Models\Order\Order;
 use Flooris\Prestashop\Models\PrestashopModel;
 use Flooris\Prestashop\Models\Profile\Profile;
+use Flooris\Prestashop\Models\Customer\Customer;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Flooris\Prestashop\Models\Customer\CustomerMessage;
 
 /**
  * Class Employee
@@ -98,5 +101,35 @@ class Employee extends PrestashopModel
     public function lang(): BelongsTo
     {
         return $this->belongsTo(Language::class, 'id_lang', 'id_lang');
+    }
+
+    /**
+     * Get the last order that the employee belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function lastOrder(): BelongsTo
+    {
+        return $this->belongsTo(Order::class, 'id_last_order', 'id_order');
+    }
+
+    /**
+     * Get the last customer message that the employee belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function customerMessage(): BelongsTo
+    {
+        return $this->belongsTo(CustomerMessage::class, 'id_last_customer_message', 'id_customer_message');
+    }
+
+    /**
+     * Get the customer that the employee belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function customer(): BelongsTo
+    {
+        return $this->belongsTo(Customer::class, 'id_last_customer', 'id_customer');
     }
 }

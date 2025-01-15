@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 /**
  * Class OrderDetailTax
  *
- * @property int     $id_order_detail
- * @property int     $id_tax
+ * @property int   $id_order_detail
+ * @property int   $id_tax
  * @property float $unit_amount
  * @property float $total_amount
  *

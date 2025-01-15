@@ -6,6 +6,15 @@ use Flooris\Prestashop\Models\PrestashopModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Flooris\Prestashop\Traits\CompositeKeyModelTrait;
 
+/**
+ * Class FeatureValueLang
+ *
+ * @property int    $id_feature_value
+ * @property int    $id_lang
+ * @property string $value
+ *
+ * @package Flooris\Prestashop\Models\Feature
+ */
 class FeatureValueLang extends PrestashopModel
 {
     use CompositeKeyModelTrait;

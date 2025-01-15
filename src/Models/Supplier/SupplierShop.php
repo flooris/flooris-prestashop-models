@@ -8,7 +8,7 @@ use Flooris\Prestashop\Traits\CompositeKeyModelTrait;
 /**
  * Class SupplierShop
  *
- * @property int $id_manufacturer
+ * @property int $id_supplier
  * @property int $id_shop
  *
  * @package Flooris\Prestashop\Models\Supplier

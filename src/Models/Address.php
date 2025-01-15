@@ -5,6 +5,7 @@ namespace Flooris\Prestashop\Models;
 use Illuminate\Support\Carbon;
 use Flooris\Prestashop\Models\Country\Country;
 use Flooris\Prestashop\Models\Supplier\Supplier;
+use Flooris\Prestashop\Models\Customer\Customer;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Flooris\Prestashop\Models\Manufacturer\Manufacturer;
 use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;

@@ -2,9 +2,13 @@
 
 namespace Flooris\Prestashop\Models\Order;
 
+use Flooris\Prestashop\Models\Warehouse;
+use Flooris\Prestashop\Models\Shop\Shop;
 use Flooris\Prestashop\Models\PrestashopModel;
 use Flooris\Prestashop\Models\Product\Product;
+use Flooris\Prestashop\Models\Tax\TaxRulesGroup;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Flooris\Prestashop\Models\Product\ProductAttribute;
 use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
 
 /**
@@ -103,6 +107,56 @@ class OrderDetail extends PrestashopModel
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class, 'product_id', 'id_product');
+    }
+
+    /**
+     * Get the order invoice that the order detail belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function orderInvoice(): BelongsTo
+    {
+        return $this->belongsTo(OrderInvoice::class, 'id_order_invoice', 'id_order_invoice');
+    }
+
+    /**
+     * Get the warehouse the order detail belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function warehouse(): BelongsTo
+    {
+        return $this->belongsTo(Warehouse::class, 'id_warehouse', 'id_warehouse');
+    }
+
+    /**
+     * Get the tax rules group the order detail belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function taxRulesGroup(): BelongsTo
+    {
+        return $this->belongsTo(TaxRulesGroup::class, 'id_tax_rules_group', 'id_tax_rules_group');
+    }
+
+    /**
+     * Get the shop the order detail belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function shop(): BelongsTo
+    {
+        return $this->belongsTo(Shop::class, 'id_shop', 'id_shop');
+    }
+
+    /**
+     * Get the product attribute the order detail belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function productAttribute(): BelongsTo
+    {
+        return $this->belongsTo(ProductAttribute::class, 'product_attribute_id', 'id_product_attribute');
     }
 
     /**

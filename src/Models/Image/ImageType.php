@@ -49,11 +49,11 @@ class ImageType extends PrestashopModel
      * @var array
      */
     protected $casts = [
-        'products    '      => 'boolean',
-        'categories    '    => 'boolean',
-        'manufacturers    ' => 'boolean',
-        'suppliers    '     => 'boolean',
-        'scenes    '        => 'boolean',
-        'stores    '        => 'boolean',
+        'products'      => 'boolean',
+        'categories'    => 'boolean',
+        'manufacturers' => 'boolean',
+        'suppliers'     => 'boolean',
+        'scenes'        => 'boolean',
+        'stores'        => 'boolean',
     ];
 }

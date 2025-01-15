@@ -7,6 +7,15 @@ use Flooris\Prestashop\Models\Product\Product;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Flooris\Prestashop\Traits\CompositeKeyModelTrait;
 
+/**
+ * Class FeatureProduct
+ *
+ * @property int $id_feature
+ * @property int $id_product
+ * @property int $id_feature_value
+ *
+ * @package Flooris\Prestashop\Models\Feature
+ */
 class FeatureProduct extends PrestashopModel
 {
     use CompositeKeyModelTrait;

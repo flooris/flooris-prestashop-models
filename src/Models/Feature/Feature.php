@@ -7,12 +7,12 @@ use Flooris\Prestashop\Models\PrestashopModel;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * Class ClassName //TODO
+ * Class Feature
  *
  * @property int $id_feature
  * @property int $position
  *
- * @package Flooris\Prestashop\Models\ClassName //TODO
+ * @package Flooris\Prestashop\Models\Feature
  */
 class Feature extends PrestashopModel
 {

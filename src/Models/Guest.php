@@ -3,6 +3,7 @@
 namespace Flooris\Prestashop\Models;
 
 
+use Flooris\Prestashop\Models\Customer\Customer;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**

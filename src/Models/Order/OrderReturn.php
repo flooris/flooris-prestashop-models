@@ -3,8 +3,8 @@
 namespace Flooris\Prestashop\Models\Order;
 
 use Illuminate\Support\Carbon;
-use Flooris\Prestashop\Models\Customer;
 use Flooris\Prestashop\Models\PrestashopModel;
+use Flooris\Prestashop\Models\Customer\Customer;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**

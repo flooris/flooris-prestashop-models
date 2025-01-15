@@ -3,8 +3,8 @@
 namespace Flooris\Prestashop\Models\Order;
 
 use Illuminate\Support\Carbon;
-use Flooris\Prestashop\Models\Customer;
 use Flooris\Prestashop\Models\PrestashopModel;
+use Flooris\Prestashop\Models\Customer\Customer;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
@@ -14,10 +14,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property float   $conversion_rate
  * @property int     $id_customer
  * @property int     $id_order
- * @property ?float   $total_products_tax_excl
- * @property ?float   $total_products_tax_incl
- * @property ?float   $total_shipping_tax_excl
- * @property ?float   $total_shipping_tax_incl
+ * @property ?float  $total_products_tax_excl
+ * @property ?float  $total_products_tax_incl
+ * @property ?float  $total_shipping_tax_excl
+ * @property ?float  $total_shipping_tax_incl
  * @property boolean $shipping_cost
  * @property float   $amount
  * @property float   $shipping_cost_amount
