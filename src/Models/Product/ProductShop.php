@@ -6,11 +6,11 @@ use Flooris\Prestashop\Models\Shop\Shop;
 use Flooris\Prestashop\Models\PrestashopModel;
 use Flooris\Prestashop\Models\Category\Category;
 use Flooris\Prestashop\Models\Tax\TaxRulesGroup;
-use Flooris\Prestashop\Enums\ProductShopConditionEnum;
-use Flooris\Prestashop\Enums\SpecificPriceRuleReductionTypeEnum;
 use Flooris\Prestashop\Traits\CompositeKeyModelTrait;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Flooris\Prestashop\Enums\ProductShopConditionEnum;
 use Flooris\Prestashop\Enums\ProductShopRedirectTypeEnum;
+use Flooris\Prestashop\Enums\SpecificPriceRuleReductionTypeEnum;
 
 /**
  * Class ProductShop
@@ -52,22 +52,19 @@ class ProductShop extends PrestashopModel
 {
     use CompositeKeyModelTrait;
 
+    public $incrementing = false;
     /**
      * The table associated with the model.
      *
      * @var string
      */
     protected $table = 'product_shop';
-
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
     protected $primaryKey = ['id_product', 'id_shop'];
-
-    public $incrementing = false;
-
     /**
      * The attributes that should be cast to specific types.
      *

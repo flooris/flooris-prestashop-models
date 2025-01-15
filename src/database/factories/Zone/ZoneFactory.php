@@ -12,8 +12,8 @@ class ZoneFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'    => $this->faker->name(),
-            'active'  => $this->faker->boolean(),
+            'name'   => $this->faker->name(),
+            'active' => $this->faker->boolean(),
         ];
     }
 }

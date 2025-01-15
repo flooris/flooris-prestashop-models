@@ -11,36 +11,32 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 /**
  * Class ConfigurationKpi
  *
- * @property int    $id_configuration_kpi
+ * @property int     $id_configuration_kpi
  * @property ?int    $id_shop_group
  * @property ?int    $id_shop
  * @property ?string $name
  * @property ?string $value
- * @property Carbon $date_add
- * @property Carbon $date_upd
+ * @property Carbon  $date_add
+ * @property Carbon  $date_upd
  *
  * @package Flooris\Prestashop\Models\Configuration
  */
 class ConfigurationKpi extends PrestashopModel
 {
+    const CREATED_AT = 'date_add';
+    const UPDATED_AT = 'date_upd';
     /**
      * The table associated with the model.
      *
      * @var string
      */
     protected $table = 'configuration_kpi';
-
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
     protected $primaryKey = 'id_configuration_kpi';
-
-    const CREATED_AT = 'date_add';
-
-    const UPDATED_AT = 'date_upd';
-
     /**
      * The attributes that should be cast to specific types.
      *

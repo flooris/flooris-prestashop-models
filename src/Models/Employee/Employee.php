@@ -22,15 +22,15 @@ use Flooris\Prestashop\Models\Customer\CustomerMessage;
  * @property string  $email
  * @property string  $passwd
  * @property Carbon  $last_passwd_gen
- * @property ?Carbon  $stats_date_from
- * @property ?Carbon  $stats_date_to
- * @property ?Carbon  $stats_compare_from
- * @property ?Carbon  $stats_compare_to
+ * @property ?Carbon $stats_date_from
+ * @property ?Carbon $stats_date_to
+ * @property ?Carbon $stats_compare_from
+ * @property ?Carbon $stats_compare_to
  * @property int     $stats_compare_option
- * @property ?string  $preselect_date_range
- * @property ?string  $bo_color
- * @property ?string  $bo_theme
- * @property ?string  $bo_css
+ * @property ?string $preselect_date_range
+ * @property ?string $bo_color
+ * @property ?string $bo_theme
+ * @property ?string $bo_css
  * @property int     $default_tab
  * @property int     $bo_width
  * @property boolean $bo_menu
@@ -46,26 +46,23 @@ use Flooris\Prestashop\Models\Customer\CustomerMessage;
 class Employee extends PrestashopModel
 {
     /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+    /**
      * The table associated with the model.
      *
      * @var string
      */
     protected $table = 'employee';
-
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
     protected $primaryKey = 'id_employee';
-
-    /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var bool
-     */
-    public $timestamps = false;
-
     /**
      * The attributes that should be cast to specific types.
      *

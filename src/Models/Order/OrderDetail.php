@@ -13,6 +13,7 @@ use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
 
 /**
  * Class OrderDetail
+ *
  * @property int         $id_order_detail
  * @property int         $id_order
  * @property int|null    $id_order_invoice
@@ -69,25 +70,23 @@ class OrderDetail extends PrestashopModel
     use HasPrestashopModelFactoryTrait;
 
     /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+    /**
      * The table associated with the model.
      *
      * @var string
      */
     protected $table = 'order_detail';
-
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
     protected $primaryKey = 'id_order_detail';
-
-    /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var bool
-     */
-    public $timestamps = false;
 
     /**
      * Get the order that the order detail belongs to.

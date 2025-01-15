@@ -20,28 +20,24 @@ class OrderDetailTax extends PrestashopModel
 {
 
     /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'order_detail_tax';
-
-    /**
-     * The primary key associated with the table.
-     *
-     * @var string
-     */
-    protected $primaryKey = null; // table doesn't have a primary key set
-
-    /**
      * Indicates if the model should be timestamped.
      *
      * @var bool
      */
     public $timestamps = false;
-
-    public $incrementing = false;
-
+    public $incrementing = false; // table doesn't have a primary key set
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'order_detail_tax';
+/**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = null;
     /**
      * The attributes that should be cast to specific types.
      *

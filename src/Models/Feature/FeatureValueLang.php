@@ -19,23 +19,20 @@ class FeatureValueLang extends PrestashopModel
 {
     use CompositeKeyModelTrait;
 
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'feature_value_lang';
-
-    protected $primaryKey = ['id_feature_value', 'id_lang'];
-
     public $incrementing = false;
-
     /**
      * Indicates if the model should be timestamped.
      *
      * @var bool
      */
     public $timestamps = false;
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'feature_value_lang';
+    protected $primaryKey = ['id_feature_value', 'id_lang'];
 
     /**
      * Get product the feature belongs to.

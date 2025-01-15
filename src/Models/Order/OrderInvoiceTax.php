@@ -17,28 +17,24 @@ use Flooris\Prestashop\Models\PrestashopModel;
 class OrderInvoiceTax extends PrestashopModel
 {
     /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'order_invoice_tax';
-
-    /**
-     * The primary key associated with the table.
-     *
-     * @var string
-     */
-    protected $primaryKey = null; // the table has no primary key, this may cause problems, but we'll see
-
-    /**
      * Indicates if the model should be timestamped.
      *
      * @var bool
      */
     public $timestamps = false;
-
-    public $incrementing = false;
-
+    public $incrementing = false; // the table has no primary key, this may cause problems, but we'll see
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'order_invoice_tax';
+/**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = null;
     /**
      * The attributes that should be cast to specific types.
      *

@@ -11,36 +11,32 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 /**
  * Class Configuration
  *
- * @property int    $id_configuration
+ * @property int     $id_configuration
  * @property ?int    $id_shop_group
  * @property ?int    $id_shop
- * @property string $name
+ * @property string  $name
  * @property ?string $value
- * @property Carbon $date_add
- * @property Carbon $date_upd
+ * @property Carbon  $date_add
+ * @property Carbon  $date_upd
  *
  * @package Flooris\Prestashop\Models\Configuration
  */
 class Configuration extends PrestashopModel
 {
+    const CREATED_AT = 'date_add';
+    const UPDATED_AT = 'date_upd';
     /**
      * The table associated with the model.
      *
      * @var string
      */
     protected $table = 'configuration';
-
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
     protected $primaryKey = 'id_configuration';
-
-    const CREATED_AT = 'date_add';
-
-    const UPDATED_AT = 'date_upd';
-
     /**
      * The attributes that should be cast to specific types.
      *

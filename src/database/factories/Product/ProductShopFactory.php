@@ -9,8 +9,8 @@ use Flooris\Prestashop\Models\Tax\TaxRulesGroup;
 use Flooris\Prestashop\Models\Product\ProductShop;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Flooris\Prestashop\Enums\ProductShopConditionEnum;
-use Flooris\Prestashop\Enums\SpecificPriceRuleReductionTypeEnum;
 use Flooris\Prestashop\Enums\ProductShopRedirectTypeEnum;
+use Flooris\Prestashop\Enums\SpecificPriceRuleReductionTypeEnum;
 
 class ProductShopFactory extends Factory
 {

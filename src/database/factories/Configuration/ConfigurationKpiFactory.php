@@ -15,10 +15,10 @@ class ConfigurationKpiFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'                 => $this->faker->name(),
-            'value'                => $this->faker->word(),
-            'date_add'             => Carbon::now(),
-            'date_upd'             => Carbon::now(),
+            'name'     => $this->faker->name(),
+            'value'    => $this->faker->word(),
+            'date_add' => Carbon::now(),
+            'date_upd' => Carbon::now(),
 
             'id_shop_group' => ShopGroup::factory(),
             'id_shop'       => Shop::factory(),

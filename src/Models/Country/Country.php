@@ -62,6 +62,7 @@ class Country extends PrestashopModel
     {
         return $this->belongsTo(Currency::class, 'id_currency', 'id_currency');
     }
+
     /**
      * Get the zone that the country belongs to.
      *

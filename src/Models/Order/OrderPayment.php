@@ -48,6 +48,14 @@ class OrderPayment extends PrestashopModel
         'date_add'        => 'datetime',
     ];
 
+    public static function findByReference($reference): ?OrderPayment
+    {
+        /** @var ?OrderPayment $output */
+        $output = self::query()->where('order_reference', $reference)->first();
+
+        return $output;
+    }
+
     /**
      * Get the currency the order payment belongs to.
      *
@@ -56,13 +64,5 @@ class OrderPayment extends PrestashopModel
     public function currency(): BelongsTo
     {
         return $this->belongsTo(Currency::class, 'id_currency', 'id_currency');
-    }
-
-    public static function findByReference($reference): ?OrderPayment
-    {
-        /** @var ?OrderPayment $output */
-        $output = self::query()->where('order_reference', $reference)->first();
-
-        return $output;
     }
 }

@@ -19,9 +19,8 @@ class OrderStateLanguage extends PrestashopModel
 {
     use CompositeKeyModelTrait;
 
-    protected $table = 'order_state_lang';
-
-    protected $primaryKey = ['id_order_state', 'id_lang'];
     public $incrementing = false;
+    protected $table = 'order_state_lang';
+    protected $primaryKey = ['id_order_state', 'id_lang'];
 
 }

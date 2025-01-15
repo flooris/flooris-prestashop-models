@@ -13,8 +13,8 @@ class ProductAttributeBundelFactory extends Factory
     public function definition(): array
     {
         return [
-            'aantal'                      => $this->faker->randomNumber(),
-            'ean13'                       => $this->faker->word(),
+            'aantal' => $this->faker->randomNumber(),
+            'ean13'  => $this->faker->word(),
 
             'id_product_attribute_verkoop'  => ProductAttribute::factory(),
             'id_product_attribute_voorraad' => ProductAttribute::factory(),

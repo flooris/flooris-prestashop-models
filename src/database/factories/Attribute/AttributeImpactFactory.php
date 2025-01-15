@@ -14,8 +14,8 @@ class AttributeImpactFactory extends Factory
     public function definition(): array
     {
         return [
-            'weight'              => $this->faker->randomFloat(),
-            'price'               => $this->faker->randomFloat(),
+            'weight' => $this->faker->randomFloat(),
+            'price'  => $this->faker->randomFloat(),
 
             'id_attribute' => Attribute::factory(),
             'id_product'   => Product::factory(),

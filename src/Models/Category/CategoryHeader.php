@@ -9,11 +9,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 /**
  * Class CategoryHeader
  *
- * @property int $id_category_header
- * @property int $id_category
+ * @property int    $id_category_header
+ * @property int    $id_category
  * @property string $content
- * @property int $id_shop
- * @property ?int $position
+ * @property int    $id_shop
+ * @property ?int   $position
  *
  * @package Flooris\Prestashop\Models\Category
  */

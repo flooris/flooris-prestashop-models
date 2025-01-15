@@ -13,8 +13,8 @@ class SpecificPricePriorityFactory extends Factory
     public function definition(): array
     {
         return [
-            'id_product'                 => Product::factory(),
-            'priority'                   => $this->faker->word(),
+            'id_product' => Product::factory(),
+            'priority'   => $this->faker->word(),
         ];
     }
 }

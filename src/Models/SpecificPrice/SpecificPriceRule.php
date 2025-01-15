@@ -14,45 +14,42 @@ use Flooris\Prestashop\Enums\SpecificPriceRuleReductionTypeEnum;
 /**
  * Class SpecificPriceRule
  *
- * @property int      $id_specific_price_rule
- * @property string   $name
- * @property int      $id_shop
- * @property int      $id_currency
- * @property int      $id_country
- * @property int      $id_group
- * @property int      $from_quantity
- * @property float    $price
- * @property float    $reduction
- * @property boolean  $reduction_tax
- * @property string   $reduction_type
- * @property Carbon $from
- * @property Carbon $to
+ * @property int     $id_specific_price_rule
+ * @property string  $name
+ * @property int     $id_shop
+ * @property int     $id_currency
+ * @property int     $id_country
+ * @property int     $id_group
+ * @property int     $from_quantity
+ * @property float   $price
+ * @property float   $reduction
+ * @property boolean $reduction_tax
+ * @property string  $reduction_type
+ * @property Carbon  $from
+ * @property Carbon  $to
  *
  * @package Flooris\Prestashop\Models\SpecificPrice
  */
 class SpecificPriceRule extends PrestashopModel
 {
     /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+    /**
      * The table associated with the model.
      *
      * @var string
      */
     protected $table = 'specific_price_rule';
-
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
     protected $primaryKey = 'id_specific_price_rule';
-
-    /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var bool
-     */
-    public $timestamps = false;
-
     /**
      * The attributes that should be cast to specific types.
      *

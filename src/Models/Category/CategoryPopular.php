@@ -9,10 +9,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 /**
  * Class CategoryPopular
  *
- * @property int $id_category_popular
- * @property int $id_shop
- * @property int $id_category
- * @property int $id_parent
+ * @property int  $id_category_popular
+ * @property int  $id_shop
+ * @property int  $id_category
+ * @property int  $id_parent
  * @property ?int $position
  *
  * @package Flooris\Prestashop\Models\Category
@@ -20,25 +20,23 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class CategoryPopular extends PrestashopModel
 {
     /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+    /**
      * The table associated with the model.
      *
      * @var string
      */
     protected $table = 'category_popular';
-
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
     protected $primaryKey = 'id_category_popular';
-
-    /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var bool
-     */
-    public $timestamps = false;
 
     /**
      * Get the category that the category feature value belongs to.

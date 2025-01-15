@@ -7,8 +7,8 @@ use Flooris\Prestashop\Models\PrestashopModel;
 /**
  * Class Tax
  *
- * @property int $id_tax
- * @property float $rate
+ * @property int     $id_tax
+ * @property float   $rate
  * @property boolean $active
  * @property boolean $deleted
  *
@@ -17,34 +17,31 @@ use Flooris\Prestashop\Models\PrestashopModel;
 class Tax extends PrestashopModel
 {
     /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+    /**
      * The table associated with the model.
      *
      * @var string
      */
     protected $table = 'tax';
-
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
     protected $primaryKey = 'id_tax';
-
-    /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var bool
-     */
-    public $timestamps = false;
-
     /**
      * The attributes that should be cast to specific types.
      *
      * @var array
      */
     protected $casts = [
-        'active' => 'boolean',
+        'active'  => 'boolean',
         'deleted' => 'boolean',
-        'rate' => 'float',
+        'rate'    => 'float',
     ];
 }

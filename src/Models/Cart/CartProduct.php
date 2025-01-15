@@ -15,12 +15,12 @@ use Flooris\Prestashop\Models\Product\ProductAttribute;
 /**
  * Class CartProduct
  *
- * @property int $id_cart
- * @property int $id_product
- * @property int $id_address_delivery
- * @property int $id_shop
- * @property int $id_product_attribute
- * @property int $quantity
+ * @property int    $id_cart
+ * @property int    $id_product
+ * @property int    $id_address_delivery
+ * @property int    $id_shop
+ * @property int    $id_product_attribute
+ * @property int    $quantity
  * @property Carbon $date_add
  *
  * @package Flooris\Prestashop\Models\Cart
@@ -28,6 +28,7 @@ use Flooris\Prestashop\Models\Product\ProductAttribute;
 class CartProduct extends PrestashopModel
 {
     use CompositeKeyModelTrait;
+
     /**
      * The table associated with the model.
      *

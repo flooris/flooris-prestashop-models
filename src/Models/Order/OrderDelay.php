@@ -19,22 +19,19 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class OrderDelay extends PrestashopModel
 {
 
+    public $incrementing = false;
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'order_delay';
-
-    /**
+    protected $table = 'order_delay'; // table doesn't have a primary key set
+/**
      * The primary key associated with the table.
      *
      * @var string
      */
-    protected $primaryKey = null; // table doesn't have a primary key set
-
-    public $incrementing = false;
-
+    protected $primaryKey = null;
     /**
      * The attributes that should be cast to specific types.
      *

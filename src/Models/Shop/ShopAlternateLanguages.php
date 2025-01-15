@@ -17,25 +17,22 @@ class ShopAlternateLanguages extends PrestashopModel
 {
 
     /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'shop_alternate_languages';
-
-    /**
-     * The primary key associated with the table.
-     *
-     * @var string
-     */
-    protected $primaryKey = null; // table doesn't have a primary key set
-
-    /**
      * Indicates if the model should be timestamped.
      *
      * @var bool
      */
     public $timestamps = false;
-
-    public $incrementing = false;
+    public $incrementing = false; // table doesn't have a primary key set
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'shop_alternate_languages';
+/**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = null;
 }

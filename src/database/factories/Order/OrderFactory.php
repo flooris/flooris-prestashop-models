@@ -62,15 +62,15 @@ class OrderFactory extends Factory
             'order_message_type'       => $this->faker->word(),
             'order_message_value'      => $this->faker->word(),
 
-            'id_shop_group'            => ShopGroup::factory(),
-            'id_shop'                  => Shop::factory(),
-            'id_carrier'               => Carrier::factory(),
-            'id_lang'                  => Language::factory(),
-            'id_customer'              => Customer::factory(),
-            'id_cart'                  => Cart::factory(),
-            'id_currency'              => Currency::factory(),
-            'id_address_delivery'      => Address::factory(),
-            'id_address_invoice'       => Address::factory(),
+            'id_shop_group'       => ShopGroup::factory(),
+            'id_shop'             => Shop::factory(),
+            'id_carrier'          => Carrier::factory(),
+            'id_lang'             => Language::factory(),
+            'id_customer'         => Customer::factory(),
+            'id_cart'             => Cart::factory(),
+            'id_currency'         => Currency::factory(),
+            'id_address_delivery' => Address::factory(),
+            'id_address_invoice'  => Address::factory(),
         ];
     }
 }

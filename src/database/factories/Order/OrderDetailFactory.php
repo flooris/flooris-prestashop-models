@@ -60,13 +60,13 @@ class OrderDetailFactory extends Factory
             'original_product_price'        => $this->faker->randomFloat(),
             'original_wholesale_price'      => $this->faker->randomFloat(),
 
-            'id_tax_rules_group'            => TaxRulesGroup::factory(),
-            'id_order'                      => Order::factory(),
-            'id_order_invoice'              => OrderInvoice::factory(),
-            'id_warehouse'                  => Warehouse::factory(),
-            'id_shop'                       => Shop::factory(),
-            'product_id'                    => Product::factory(),
-            'product_attribute_id'          => ProductAttribute::factory(),
+            'id_tax_rules_group'   => TaxRulesGroup::factory(),
+            'id_order'             => Order::factory(),
+            'id_order_invoice'     => OrderInvoice::factory(),
+            'id_warehouse'         => Warehouse::factory(),
+            'id_shop'              => Shop::factory(),
+            'product_id'           => Product::factory(),
+            'product_attribute_id' => ProductAttribute::factory(),
         ];
     }
 }

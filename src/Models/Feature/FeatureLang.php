@@ -19,23 +19,20 @@ class FeatureLang extends PrestashopModel
 {
     use CompositeKeyModelTrait;
 
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'feature_lang';
-
-    protected $primaryKey = ['id_feature', 'id_lang'];
-
     public $incrementing = false;
-
     /**
      * Indicates if the model should be timestamped.
      *
      * @var bool
      */
     public $timestamps = false;
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'feature_lang';
+    protected $primaryKey = ['id_feature', 'id_lang'];
 
     /**
      * Get product the feature belongs to.

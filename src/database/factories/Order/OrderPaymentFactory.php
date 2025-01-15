@@ -25,7 +25,7 @@ class OrderPaymentFactory extends Factory
             'card_holder'     => $this->faker->word(),
             'date_add'        => Carbon::now(),
 
-            'id_currency'     => Currency::factory(),
+            'id_currency' => Currency::factory(),
         ];
     }
 }

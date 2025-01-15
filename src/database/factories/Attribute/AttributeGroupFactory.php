@@ -13,11 +13,11 @@ class AttributeGroupFactory extends Factory
     public function definition(): array
     {
         return [
-            'group_type'         => $this->faker->randomElement(GroupTypeEnum::class),
-            'is_color_group'     => function (array $attributes) {
+            'group_type'     => $this->faker->randomElement(GroupTypeEnum::class),
+            'is_color_group' => function (array $attributes) {
                 return $attributes['group_type'] === GroupTypeEnum::COLOR;
             },
-            'position'           => $this->faker->randomNumber(),
+            'position'       => $this->faker->randomNumber(),
         ];
     }
 }

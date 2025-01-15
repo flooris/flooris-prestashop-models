@@ -8,10 +8,10 @@ use Flooris\Prestashop\Models\PrestashopModel;
 /**
  * Class TaxRulesGroup
  *
- * @property int $id_tax_rules_group
- * @property string $name
- * @property boolean $active
- * @property boolean $deleted
+ * @property int         $id_tax_rules_group
+ * @property string      $name
+ * @property boolean     $active
+ * @property boolean     $deleted
  * @property Carbon|null $date_add
  * @property Carbon|null $date_upd
  *
@@ -39,9 +39,9 @@ class TaxRulesGroup extends PrestashopModel
      * @var array
      */
     protected $casts = [
-        'active' => 'boolean',
-        'deleted' => 'boolean',
-        'date_add' => 'datetime',
+        'active'    => 'boolean',
+        'deleted'   => 'boolean',
+        'date_add'  => 'datetime',
         'date_upd ' => 'datetime',
     ];
 }

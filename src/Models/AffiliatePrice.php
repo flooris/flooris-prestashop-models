@@ -8,36 +8,33 @@ use Flooris\Prestashop\Models\Product\ProductAttribute;
 /**
  * Class AffiliatePrice
  *
- * @property int $id
- * @property int $id_product_attribute
+ * @property int    $id
+ * @property int    $id_product_attribute
  * @property string $affiliate_key
- * @property float $price_tax_incl
+ * @property float  $price_tax_incl
  *
  * @package Flooris\Prestashop\Models
  */
 class AffiliatePrice extends PrestashopModel
 {
     /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+    /**
      * The table associated with the model.
      *
      * @var string
      */
     protected $table = 'affiliate_price';
-
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
     protected $primaryKey = 'id';
-
-    /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var bool
-     */
-    public $timestamps = false;
-
     /**
      * The attributes that should be cast to specific types.
      *

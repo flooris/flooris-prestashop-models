@@ -42,33 +42,31 @@ use Flooris\Prestashop\Models\Product\ProductAttribute;
 class SpecificPrice extends PrestashopModel
 {
     /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+    /**
      * The table associated with the model.
      *
      * @var string
      */
     protected $table = 'specific_price';
-
     /**
      * The table associated with the model.
      *
      * @var string
      */
     protected $primaryKey = 'id_specific_price';
-
-    /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var bool
-     */
-    public $timestamps = false;
-
     /**
      * The attributes that should be cast.
+     *
      * @var array
      */
     protected $casts = [
         'from' => 'datetime',
-        'to' => 'datetime'
+        'to'   => 'datetime',
     ];
 
     /**

@@ -161,14 +161,14 @@ class Product extends PrestashopModel
         );
     }
 
-    public function images(): HasMany
-    {
-        return $this->hasMany(Image::class, 'id_product');
-    }
-
     public function getCoverImageAttribute()
     {
         return $this->images()->where('cover')->first();
+    }
+
+    public function images(): HasMany
+    {
+        return $this->hasMany(Image::class, 'id_product');
     }
 
     public function translations(): HasMany

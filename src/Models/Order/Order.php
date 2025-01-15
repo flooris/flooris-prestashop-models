@@ -83,29 +83,27 @@ class Order extends PrestashopModel
     use HasPrestashopModelFactoryTrait;
 
     /**
-     * The primary key associated with the table.
-     *
-     * @var string
-     */
-    protected $primaryKey = 'id_order';
-
-    /**
      * Indicates if the model should be timestamped.
      *
      * @var bool
      */
     public $timestamps = false;
-
+    /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'id_order';
     /**
      * The attributes that should be cast.
      *
      * @var array
      */
     protected $casts = [
-        'invoice_date' => 'datetime',
+        'invoice_date'  => 'datetime',
         'delivery_date' => 'datetime',
-        'date_add' => 'datetime',
-        'date_upd' => 'datetime',
+        'date_add'      => 'datetime',
+        'date_upd'      => 'datetime',
     ];
 
     /**
@@ -239,7 +237,7 @@ class Order extends PrestashopModel
             ->leftJoin('order_history AS oh', 'oh.id_order', 'o.id_order')
             ->leftJoin('order_carrier AS oc', 'oc.id_order', 'o.id_order')
             ->leftJoin('carrier AS c', 'c.id_carrier', 'oc.id_carrier')
-            ->leftJoin('order_state_lang AS osl', function(JoinClause $clause) {
+            ->leftJoin('order_state_lang AS osl', function (JoinClause $clause) {
                 $clause->on('osl.id_order_state', 'oh.id_order_state');
                 $clause->on('osl.id_lang', 'o.id_lang');
             })

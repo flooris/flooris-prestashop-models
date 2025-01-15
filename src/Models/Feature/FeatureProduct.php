@@ -20,23 +20,20 @@ class FeatureProduct extends PrestashopModel
 {
     use CompositeKeyModelTrait;
 
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'feature_product';
-
-    protected $primaryKey = ['id_feature', 'id_product'];
-
     public $incrementing = false;
-
     /**
      * Indicates if the model should be timestamped.
      *
      * @var bool
      */
     public $timestamps = false;
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'feature_product';
+    protected $primaryKey = ['id_feature', 'id_product'];
 
     /**
      * Get product the feature belongs to.

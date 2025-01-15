@@ -19,23 +19,20 @@ class AttributeLang extends PrestashopModel
 {
     use CompositeKeyModelTrait;
 
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'attribute_lang';
-
-    protected $primaryKey = ['id_attribute', 'id_lang'];
-
     public $incrementing = false;
-
     /**
      * Indicates if the model should be timestamped.
      *
      * @var bool
      */
     public $timestamps = false;
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'attribute_lang';
+    protected $primaryKey = ['id_attribute', 'id_lang'];
 
     /**
      * Get product the feature belongs to.

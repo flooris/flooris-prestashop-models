@@ -19,25 +19,23 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class ProductAttributeBundel extends PrestashopModel
 {
     /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+    /**
      * The table associated with the model.
      *
      * @var string
      */
     protected $table = 'product_attribute_bundel';
-
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
     protected $primaryKey = 'id_product_attribute_bundel';
-
-    /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var bool
-     */
-    public $timestamps = false;
 
     /**
      * Get the product attribute voorraad that the product attribute bundel belongs to.
