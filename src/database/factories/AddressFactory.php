@@ -3,14 +3,8 @@
 namespace Flooris\Prestashop\Database\Factories;
 
 use Illuminate\Support\Carbon;
-use Flooris\Prestashop\Models\State;
 use Flooris\Prestashop\Models\Address;
-use Flooris\Prestashop\Models\Warehouse;
-use Flooris\Prestashop\Models\Country\Country;
-use Flooris\Prestashop\Models\Customer\Customer;
-use Flooris\Prestashop\Models\Supplier\Supplier;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Flooris\Prestashop\Models\Manufacturer\Manufacturer;
 
 class AddressFactory extends Factory
 {
@@ -37,13 +31,6 @@ class AddressFactory extends Factory
             'date_upd'     => Carbon::now(),
             'active'       => $this->faker->boolean(),
             'deleted'      => $this->faker->boolean(),
-
-            'id_country'      => Country::factory(),
-            'id_state'        => State::factory(),
-            'id_customer'     => Customer::factory(),
-            'id_manufacturer' => Manufacturer::factory(),
-            'id_supplier'     => Supplier::factory(),
-            'id_warehouse'    => Warehouse::factory(),
         ];
     }
 }

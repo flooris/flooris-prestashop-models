@@ -4,7 +4,6 @@ namespace Flooris\Prestashop\Database\Factories\Attribute;
 
 use Flooris\Prestashop\Models\Attribute\Attribute;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Flooris\Prestashop\Models\Attribute\AttributeGroup;
 
 class AttributeFactory extends Factory
 {
@@ -19,8 +18,6 @@ class AttributeFactory extends Factory
             'display_name'     => $this->faker->name(),
             'price_unit_value' => $this->faker->randomFloat(),
             'price_unit_type'  => $this->faker->word(),
-
-            'id_attribute_group' => AttributeGroup::factory(),
         ];
     }
 }

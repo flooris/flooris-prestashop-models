@@ -6,7 +6,6 @@ use Illuminate\Support\Carbon;
 use Flooris\Prestashop\Models\Order\OrderSyncLog;
 use Flooris\Prestashop\Enums\OrderSyncStatusEnum;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Flooris\Prestashop\Models\Order\OrderSyncStatus;
 
 class OrderSyncLogFactory extends Factory
 {
@@ -15,10 +14,9 @@ class OrderSyncLogFactory extends Factory
     public function definition(): array
     {
         return [
-            'id_order_sync_status' => OrderSyncStatus::factory(),
-            'status'               => $this->faker->randomElement(OrderSyncStatusEnum::class),
-            'message'              => $this->faker->word(),
-            'date_upd'             => Carbon::now(),
+            'status'   => $this->faker->randomElement(OrderSyncStatusEnum::class),
+            'message'  => $this->faker->word(),
+            'date_upd' => Carbon::now(),
         ];
     }
 }

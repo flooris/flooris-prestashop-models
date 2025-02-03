@@ -3,7 +3,6 @@
 namespace Flooris\Prestashop\Database\Factories\Order;
 
 use Illuminate\Support\Carbon;
-use Flooris\Prestashop\Models\Currency\Currency;
 use Flooris\Prestashop\Models\Order\OrderPayment;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -24,8 +23,6 @@ class OrderPaymentFactory extends Factory
             'card_expiration' => $this->faker->word(),
             'card_holder'     => $this->faker->word(),
             'date_add'        => Carbon::now(),
-
-            'id_currency' => Currency::factory(),
         ];
     }
 }

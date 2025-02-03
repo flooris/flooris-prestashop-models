@@ -2,9 +2,7 @@
 
 namespace Flooris\Prestashop\Database\Factories\Manufacturer;
 
-use Flooris\Prestashop\Models\Language;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Flooris\Prestashop\Models\Manufacturer\Manufacturer;
 use Flooris\Prestashop\Models\Manufacturer\ManufacturerLang;
 
 class ManufacturerLangFactory extends Factory
@@ -14,8 +12,6 @@ class ManufacturerLangFactory extends Factory
     public function definition(): array
     {
         return [
-            'id_manufacturer'   => Manufacturer::factory(),
-            'id_lang'           => Language::factory(),
             'description'       => $this->faker->text(),
             'short_description' => $this->faker->text(),
             'meta_title'        => $this->faker->word(),

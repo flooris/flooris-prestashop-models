@@ -2,15 +2,8 @@
 
 namespace Flooris\Prestashop\Database\Factories\Order;
 
-use Flooris\Prestashop\Models\Warehouse;
-use Flooris\Prestashop\Models\Shop\Shop;
-use Flooris\Prestashop\Models\Order\Order;
-use Flooris\Prestashop\Models\Product\Product;
 use Flooris\Prestashop\Models\Order\OrderDetail;
-use Flooris\Prestashop\Models\Tax\TaxRulesGroup;
-use Flooris\Prestashop\Models\Order\OrderInvoice;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Flooris\Prestashop\Models\Product\ProductAttribute;
 
 class OrderDetailFactory extends Factory
 {
@@ -59,14 +52,6 @@ class OrderDetailFactory extends Factory
             'purchase_supplier_price'       => $this->faker->randomFloat(),
             'original_product_price'        => $this->faker->randomFloat(),
             'original_wholesale_price'      => $this->faker->randomFloat(),
-
-            'id_tax_rules_group'   => TaxRulesGroup::factory(),
-            'id_order'             => Order::factory(),
-            'id_order_invoice'     => OrderInvoice::factory(),
-            'id_warehouse'         => Warehouse::factory(),
-            'id_shop'              => Shop::factory(),
-            'product_id'           => Product::factory(),
-            'product_attribute_id' => ProductAttribute::factory(),
         ];
     }
 }

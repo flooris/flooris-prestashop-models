@@ -29,7 +29,7 @@ class ShopAlternateLanguages extends PrestashopModel
      * @var string
      */
     protected $table = 'shop_alternate_languages';
-/**
+    /**
      * The primary key associated with the table.
      *
      * @var string

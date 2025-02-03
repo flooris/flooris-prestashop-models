@@ -2,13 +2,8 @@
 
 namespace Flooris\Prestashop\Database\Factories\Product;
 
-use Flooris\Prestashop\Models\Shop\Shop;
 use Flooris\Prestashop\Models\Product\Product;
-use Flooris\Prestashop\Models\Category\Category;
-use Flooris\Prestashop\Models\Supplier\Supplier;
-use Flooris\Prestashop\Models\Tax\TaxRulesGroup;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Flooris\Prestashop\Models\Manufacturer\Manufacturer;
 
 class ProductFactory extends Factory
 {
@@ -63,12 +58,6 @@ class ProductFactory extends Factory
             'hs_code'                   => $this->faker->word(),
             'origin_country'            => $this->faker->country(),
             'review_priority'           => $this->faker->randomNumber(),
-
-            'id_supplier'         => Supplier::factory(),
-            'id_shop_default'     => Shop::factory(),
-            'id_tax_rules_group'  => TaxRulesGroup::factory(),
-            'id_manufacturer'     => Manufacturer::factory(),
-            'id_category_default' => Category::factory(),
         ];
     }
 }

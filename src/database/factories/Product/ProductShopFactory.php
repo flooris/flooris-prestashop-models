@@ -2,10 +2,6 @@
 
 namespace Flooris\Prestashop\Database\Factories\Product;
 
-use Flooris\Prestashop\Models\Shop\Shop;
-use Flooris\Prestashop\Models\Product\Product;
-use Flooris\Prestashop\Models\Category\Category;
-use Flooris\Prestashop\Models\Tax\TaxRulesGroup;
 use Flooris\Prestashop\Models\Product\ProductShop;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Flooris\Prestashop\Enums\ProductShopConditionEnum;
@@ -45,11 +41,6 @@ class ProductShopFactory extends Factory
             'date_add'                  => $this->faker->word(),
             'date_upd'                  => $this->faker->word(),
             'pack_stock_type'           => $this->faker->randomNumber(),
-
-            'id_product'          => Product::factory(),
-            'id_shop'             => Shop::factory(),
-            'id_category_default' => Category::factory(),
-            'id_tax_rules_group'  => TaxRulesGroup::factory(),
         ];
     }
 }

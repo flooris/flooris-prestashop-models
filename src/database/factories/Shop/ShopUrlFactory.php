@@ -2,7 +2,6 @@
 
 namespace Flooris\Prestashop\Database\Factories\Shop;
 
-use Flooris\Prestashop\Models\Shop\Shop;
 use Flooris\Prestashop\Models\Shop\ShopUrl;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -19,8 +18,6 @@ class ShopUrlFactory extends Factory
             'virtual_uri'  => $this->faker->word(),
             'main'         => $this->faker->randomNumber(),
             'active'       => $this->faker->randomNumber(),
-
-            'id_shop' => Shop::factory(),
         ];
     }
 }

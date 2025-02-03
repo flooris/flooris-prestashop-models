@@ -3,9 +3,6 @@
 namespace Flooris\Prestashop\Database\Factories;
 
 use Flooris\Prestashop\Models\Guest;
-use Flooris\Prestashop\Models\WebBrowser;
-use Flooris\Prestashop\Models\OperatingSystem;
-use Flooris\Prestashop\Models\Customer\Customer;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class GuestFactory extends Factory
@@ -27,10 +24,6 @@ class GuestFactory extends Factory
             'windows_media'       => $this->faker->boolean(),
             'accept_language'     => $this->faker->word(),
             'mobile_theme'        => $this->faker->boolean(),
-
-            'id_operating_system' => OperatingSystem::factory(),
-            'id_web_browser'      => WebBrowser::factory(),
-            'id_customer'         => Customer::factory(),
         ];
     }
 }

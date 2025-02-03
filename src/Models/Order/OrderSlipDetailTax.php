@@ -29,7 +29,7 @@ class OrderSlipDetailTax extends PrestashopModel
      * @var string
      */
     protected $table = 'order_slip_detail_tax';
-/**
+    /**
      * The primary key associated with the table.
      *
      * @var string

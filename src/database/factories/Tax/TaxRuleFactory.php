@@ -2,11 +2,7 @@
 
 namespace Flooris\Prestashop\Database\Factories\Tax;
 
-use Flooris\Prestashop\Models\State;
-use Flooris\Prestashop\Models\Tax\Tax;
 use Flooris\Prestashop\Models\Tax\TaxRule;
-use Flooris\Prestashop\Models\Country\Country;
-use Flooris\Prestashop\Models\Tax\TaxRulesGroup;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class TaxRuleFactory extends Factory
@@ -20,11 +16,6 @@ class TaxRuleFactory extends Factory
             'zipcode_to'   => $this->faker->word(),
             'behavior'     => $this->faker->randomNumber(),
             'description'  => $this->faker->text(),
-
-            'id_tax'             => Tax::factory(),
-            'id_country'         => Country::factory(),
-            'id_state'           => State::factory(),
-            'id_tax_rules_group' => TaxRulesGroup::factory(),
         ];
     }
 }

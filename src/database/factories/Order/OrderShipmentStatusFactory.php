@@ -3,7 +3,6 @@
 namespace Flooris\Prestashop\Database\Factories\Order;
 
 use Illuminate\Support\Carbon;
-use Flooris\Prestashop\Models\Order\Order;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Flooris\Prestashop\Enums\OrderShipmentStatusEnum;
 use Flooris\Prestashop\Models\Order\OrderShipmentStatus;
@@ -15,7 +14,6 @@ class OrderShipmentStatusFactory extends Factory
     public function definition(): array
     {
         return [
-            'id_order'          => Order::factory(),
             'id_logistics_user' => $this->faker->randomNumber(),
             'barcode'           => $this->faker->word(),
             'file_path'         => $this->faker->word(),

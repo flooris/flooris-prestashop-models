@@ -3,9 +3,7 @@
 namespace Flooris\Prestashop\Database\Factories\Customer;
 
 use Illuminate\Support\Carbon;
-use Flooris\Prestashop\Models\Employee\Employee;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Flooris\Prestashop\Models\Customer\CustomerThread;
 use Flooris\Prestashop\Models\Customer\CustomerMessage;
 
 class CustomerMessageFactory extends Factory
@@ -23,9 +21,6 @@ class CustomerMessageFactory extends Factory
             'date_upd'   => Carbon::now(),
             'private'    => $this->faker->boolean(),
             'read'       => $this->faker->boolean(),
-
-            'id_customer_thread' => CustomerThread::factory(),
-            'id_employee'        => Employee::factory(),
         ];
     }
 }

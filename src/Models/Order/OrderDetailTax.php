@@ -32,7 +32,7 @@ class OrderDetailTax extends PrestashopModel
      * @var string
      */
     protected $table = 'order_detail_tax';
-/**
+    /**
      * The primary key associated with the table.
      *
      * @var string

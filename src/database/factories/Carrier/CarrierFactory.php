@@ -3,7 +3,6 @@
 namespace Flooris\Prestashop\Database\Factories\Carrier;
 
 use Flooris\Prestashop\Models\Carrier\Carrier;
-use Flooris\Prestashop\Models\Tax\TaxRulesGroup;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CarrierFactory extends Factory
@@ -34,8 +33,6 @@ class CarrierFactory extends Factory
             'max_depth'            => $this->faker->randomNumber(),
             'max_weight'           => $this->faker->randomFloat(),
             'grade'                => $this->faker->randomNumber(),
-
-            'id_tax_rules_group' => TaxRulesGroup::factory(),
         ];
     }
 }

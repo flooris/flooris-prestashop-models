@@ -13,6 +13,7 @@ use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
 abstract class PrestashopModel extends Model
 {
     use HasPrestashopModelFactoryTrait;
+
     /**
      * The name of the "created at" column.
      *

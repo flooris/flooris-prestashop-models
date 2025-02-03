@@ -2,8 +2,6 @@
 
 namespace Flooris\Prestashop\Database\Factories\Attribute;
 
-use Flooris\Prestashop\Models\Product\Product;
-use Flooris\Prestashop\Models\Attribute\Attribute;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Flooris\Prestashop\Models\Attribute\AttributeImpact;
 
@@ -16,9 +14,6 @@ class AttributeImpactFactory extends Factory
         return [
             'weight' => $this->faker->randomFloat(),
             'price'  => $this->faker->randomFloat(),
-
-            'id_attribute' => Attribute::factory(),
-            'id_product'   => Product::factory(),
         ];
     }
 }

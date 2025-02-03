@@ -2,15 +2,7 @@
 
 namespace Flooris\Prestashop\Database\Factories\Order;
 
-use Flooris\Prestashop\Models\Address;
-use Flooris\Prestashop\Models\Language;
-use Flooris\Prestashop\Models\Shop\Shop;
-use Flooris\Prestashop\Models\Cart\Cart;
 use Flooris\Prestashop\Models\Order\Order;
-use Flooris\Prestashop\Models\Shop\ShopGroup;
-use Flooris\Prestashop\Models\Carrier\Carrier;
-use Flooris\Prestashop\Models\Customer\Customer;
-use Flooris\Prestashop\Models\Currency\Currency;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class OrderFactory extends Factory
@@ -61,16 +53,6 @@ class OrderFactory extends Factory
             'date_upd'                 => $this->faker->word(),
             'order_message_type'       => $this->faker->word(),
             'order_message_value'      => $this->faker->word(),
-
-            'id_shop_group'       => ShopGroup::factory(),
-            'id_shop'             => Shop::factory(),
-            'id_carrier'          => Carrier::factory(),
-            'id_lang'             => Language::factory(),
-            'id_customer'         => Customer::factory(),
-            'id_cart'             => Cart::factory(),
-            'id_currency'         => Currency::factory(),
-            'id_address_delivery' => Address::factory(),
-            'id_address_invoice'  => Address::factory(),
         ];
     }
 }

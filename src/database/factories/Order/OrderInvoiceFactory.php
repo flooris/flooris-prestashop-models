@@ -2,7 +2,6 @@
 
 namespace Flooris\Prestashop\Database\Factories\Order;
 
-use Flooris\Prestashop\Models\Order\Order;
 use Flooris\Prestashop\Models\Order\OrderInvoice;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -13,7 +12,6 @@ class OrderInvoiceFactory extends Factory
     public function definition(): array
     {
         return [
-            'id_order'                        => Order::factory(),
             'number'                          => $this->faker->randomNumber(),
             'delivery_number'                 => $this->faker->randomNumber(),
             'delivery_date'                   => $this->faker->word(),

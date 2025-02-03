@@ -2,9 +2,7 @@
 
 namespace Flooris\Prestashop\Database\Factories\Product;
 
-use Flooris\Prestashop\Models\Product\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Flooris\Prestashop\Models\Product\ProductAttribute;
 use Flooris\Prestashop\Models\Product\ProductAttributeInfo;
 
 class ProductAttributeInfoFactory extends Factory
@@ -21,9 +19,6 @@ class ProductAttributeInfoFactory extends Factory
             'voordeelmailsegmentpaardvee'        => $this->faker->randomNumber(),
             'voordeelmailsegmentvis'             => $this->faker->randomNumber(),
             'herbesteltermijn'                   => $this->faker->randomNumber(),
-
-            'id_product_attribute' => ProductAttribute::factory(),
-            'id_product'           => Product::factory(),
         ];
     }
 }

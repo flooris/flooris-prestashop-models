@@ -2,9 +2,7 @@
 
 namespace Flooris\Prestashop\Database\Factories\Product;
 
-use Flooris\Prestashop\Models\Product\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Flooris\Prestashop\Models\Product\ProductAttribute;
 use Flooris\Prestashop\Models\Product\ProductAttributeShop;
 
 class ProductAttributeShopFactory extends Factory
@@ -36,9 +34,6 @@ class ProductAttributeShopFactory extends Factory
             'warehouse_category' => $this->faker->word(),
             'gross_weight'       => $this->faker->randomFloat(),
             'is_bundle_in_feed'  => $this->faker->randomNumber(),
-
-            'id_product_attribute' => ProductAttribute::factory(),
-            'id_product'           => Product::factory(),
         ];
     }
 }

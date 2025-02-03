@@ -3,12 +3,6 @@
 namespace Flooris\Prestashop\Database\Factories\Customer;
 
 use Illuminate\Support\Carbon;
-use Flooris\Prestashop\Models\Language;
-use Flooris\Prestashop\Models\Shop\Shop;
-use Flooris\Prestashop\Models\Risk\Risk;
-use Flooris\Prestashop\Models\Group\Group;
-use Flooris\Prestashop\Models\Gender\Gender;
-use Flooris\Prestashop\Models\Shop\ShopGroup;
 use Flooris\Prestashop\Models\Customer\Customer;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -43,13 +37,6 @@ class CustomerFactory extends Factory
             'deleted'                    => $this->faker->boolean(),
             'date_add'                   => Carbon::now(),
             'date_upd'                   => Carbon::now(),
-
-            'id_shop_group'    => ShopGroup::factory(),
-            'id_shop'          => Shop::factory(),
-            'id_gender'        => Gender::factory(),
-            'id_default_group' => Group::factory(),
-            'id_lang'          => Language::factory(),
-            'id_risk'          => Risk::factory(),
         ];
     }
 }

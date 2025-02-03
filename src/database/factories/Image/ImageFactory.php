@@ -4,7 +4,6 @@ namespace Flooris\Prestashop\Database\Factories\Image;
 
 use Illuminate\Support\Carbon;
 use Flooris\Prestashop\Models\Image\Image;
-use Flooris\Prestashop\Models\Product\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ImageFactory extends Factory
@@ -18,8 +17,6 @@ class ImageFactory extends Factory
             'cover'       => $this->faker->boolean(),
             'end_date'    => Carbon::now(),
             'clean_image' => $this->faker->boolean(),
-
-            'id_product' => Product::factory(),
         ];
     }
 }

@@ -3,7 +3,6 @@
 namespace Flooris\Prestashop\Database\Factories\Category;
 
 use Illuminate\Support\Carbon;
-use Flooris\Prestashop\Models\Shop\Shop;
 use Flooris\Prestashop\Models\Category\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -25,9 +24,6 @@ class CategoryFactory extends Factory
             'is_root_category'          => $this->faker->boolean(),
             'show_subcategory_products' => $this->faker->boolean(),
             'has_review_priority'       => $this->faker->boolean(),
-
-            'id_parent'       => Category::factory(),
-            'id_shop_default' => Shop::factory(),
         ];
     }
 }

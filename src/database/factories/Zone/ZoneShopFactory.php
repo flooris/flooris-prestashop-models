@@ -2,8 +2,6 @@
 
 namespace Flooris\Prestashop\Database\Factories\Zone;
 
-use Flooris\Prestashop\Models\Zone\Zone;
-use Flooris\Prestashop\Models\Shop\Shop;
 use Flooris\Prestashop\Models\Zone\ZoneShop;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -14,8 +12,6 @@ class ZoneShopFactory extends Factory
     public function definition(): array
     {
         return [
-            'id_zone' => Zone::factory(),
-            'id_shop' => Shop::factory(),
         ];
     }
 }

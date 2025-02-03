@@ -3,7 +3,6 @@
 namespace Flooris\Prestashop\Database\Factories\Tag;
 
 use Flooris\Prestashop\Models\Tag\Tag;
-use Flooris\Prestashop\Models\Language;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class TagFactory extends Factory
@@ -14,8 +13,6 @@ class TagFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-
-            'id_lang' => Language::factory(),
         ];
     }
 }

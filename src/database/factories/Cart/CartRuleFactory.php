@@ -4,7 +4,6 @@ namespace Flooris\Prestashop\Database\Factories\Cart;
 
 use Illuminate\Support\Carbon;
 use Flooris\Prestashop\Models\Cart\CartRule;
-use Flooris\Prestashop\Models\Customer\Customer;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CartRuleFactory extends Factory
@@ -44,8 +43,6 @@ class CartRuleFactory extends Factory
             'active'                  => $this->faker->boolean(),
             'date_add'                => Carbon::now(),
             'date_upd'                => Carbon::now(),
-
-            'id_customer' => Customer::factory(),
         ];
     }
 }

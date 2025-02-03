@@ -3,9 +3,7 @@
 namespace Flooris\Prestashop\Database\Factories\Order;
 
 use Illuminate\Support\Carbon;
-use Flooris\Prestashop\Models\Order\Order;
 use Flooris\Prestashop\Models\Order\OrderSlip;
-use Flooris\Prestashop\Models\Customer\Customer;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class OrderSlipFactory extends Factory
@@ -27,9 +25,6 @@ class OrderSlipFactory extends Factory
             'order_slip_type'         => $this->faker->boolean(),
             'date_add'                => Carbon::now(),
             'date_upd'                => Carbon::now(),
-
-            'id_customer' => Customer::factory(),
-            'id_order'    => Order::factory(),
         ];
     }
 }

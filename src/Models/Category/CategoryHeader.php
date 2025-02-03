@@ -20,25 +20,23 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class CategoryHeader extends PrestashopModel
 {
     /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+    /**
      * The table associated with the model.
      *
      * @var string
      */
     protected $table = 'category_header';
-
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
     protected $primaryKey = 'id_category_header';
-
-    /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var bool
-     */
-    public $timestamps = false;
 
     /**
      * Get the category that the category header belongs to.

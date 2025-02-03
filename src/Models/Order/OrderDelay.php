@@ -26,7 +26,7 @@ class OrderDelay extends PrestashopModel
      * @var string
      */
     protected $table = 'order_delay'; // table doesn't have a primary key set
-/**
+    /**
      * The primary key associated with the table.
      *
      * @var string
