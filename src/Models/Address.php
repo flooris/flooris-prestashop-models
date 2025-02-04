@@ -43,7 +43,7 @@ use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
  */
 class Address extends PrestashopModel
 {
-    use HasPrestashopModelFactoryTrait;
+
 
     /**
      * The table associated with the model.

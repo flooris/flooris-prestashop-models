@@ -18,7 +18,7 @@ use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
  */
 class AttributeGroup extends PrestashopModel
 {
-    use HasPrestashopModelFactoryTrait;
+
 
     /**
      * Indicates if the model should be timestamped.

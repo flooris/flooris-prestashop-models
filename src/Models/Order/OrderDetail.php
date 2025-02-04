@@ -67,7 +67,7 @@ use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
  */
 class OrderDetail extends PrestashopModel
 {
-    use HasPrestashopModelFactoryTrait;
+
 
     /**
      * Indicates if the model should be timestamped.

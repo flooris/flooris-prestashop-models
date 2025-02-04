@@ -77,7 +77,7 @@ use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
  */
 class Product extends PrestashopModel
 {
-    use HasPrestashopModelFactoryTrait;
+
 
     /**
      * The table associated with the model.

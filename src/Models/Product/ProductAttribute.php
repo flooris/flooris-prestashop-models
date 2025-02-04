@@ -39,7 +39,7 @@ use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
  */
 class ProductAttribute extends PrestashopModel
 {
-    use HasPrestashopModelFactoryTrait;
+
 
     /**
      * Indicates if the model should be timestamped.

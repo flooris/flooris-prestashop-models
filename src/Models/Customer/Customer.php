@@ -54,7 +54,7 @@ use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
  */
 class Customer extends PrestashopModel
 {
-    use HasPrestashopModelFactoryTrait;
+
 
     /**
      * The table associated with the model.

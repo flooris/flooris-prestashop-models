@@ -2,6 +2,7 @@
 
 namespace Flooris\Prestashop\Models\Order;
 
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection;
 use Flooris\Prestashop\Models\Address;
@@ -66,13 +67,13 @@ use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
  * @property int         $round_type
  * @property int         $invoice_number
  * @property int         $delivery_number
- * @property string      $invoice_date
- * @property string      $delivery_date
+ * @property Carbon      $invoice_date
+ * @property Carbon      $delivery_date
  * @property bool        $valid
  * @property string|null $ga_client_id
  * @property string|null $ga_session_id
- * @property string      $date_add
- * @property string      $date_upd
+ * @property Carbon      $date_add
+ * @property Carbon      $date_upd
  * @property string|null $order_message_type
  * @property string|null $order_message_value
  *
@@ -80,7 +81,7 @@ use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
  */
 class Order extends PrestashopModel
 {
-    use HasPrestashopModelFactoryTrait;
+
 
     /**
      * Indicates if the model should be timestamped.

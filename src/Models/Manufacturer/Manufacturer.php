@@ -23,7 +23,7 @@ use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
  */
 class Manufacturer extends PrestashopModel
 {
-    use HasPrestashopModelFactoryTrait;
+
 
     /**
      * The table associated with the model.

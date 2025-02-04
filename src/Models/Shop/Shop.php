@@ -9,18 +9,35 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * @property int    $id_shop
- * @property int    $id_shop_group
- * @property string $name
- * @property int    $id_category
- * @property int    $id_theme
- * @property int    $active
- * @property int    $deleted
+ * @property int     $id_shop
+ * @property int     $id_shop_group
+ * @property string  $name
+ * @property int     $id_category
+ * @property int     $id_theme
+ * @property boolean $active
+ * @property boolean $deleted
  */
 class Shop extends PrestashopModel
 {
     protected $table = 'shop';
     protected $primaryKey = 'id_shop';
+
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
+     * The attributes that should be cast to specific types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'active'  => 'boolean',
+        'deleted' => 'boolean',
+    ];
 
     public function shopUrl(): HasOne
     {

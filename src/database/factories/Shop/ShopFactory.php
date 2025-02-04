@@ -13,8 +13,8 @@ class ShopFactory extends Factory
     {
         return [
             'name'    => $this->faker->name(),
-            'active'  => $this->faker->randomNumber(),
-            'deleted' => $this->faker->randomNumber(),
+            'active'  => $this->faker->boolean(),
+            'deleted' => $this->faker->boolean(),
         ];
     }
 }
