@@ -7,6 +7,7 @@ use Flooris\Prestashop\Models\Shop\Shop;
 use Flooris\Prestashop\Models\PrestashopModel;
 use Flooris\Prestashop\Models\Product\Product;
 use Flooris\Prestashop\Models\Tax\TaxRulesGroup;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Flooris\Prestashop\Models\Product\ProductAttribute;
 use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
@@ -101,11 +102,11 @@ class OrderDetail extends PrestashopModel
     /**
      * Get the product the order detail belongs to.
      *
-     * @return BelongsTo
+     * @return HasOne
      */
-    public function product(): BelongsTo
+    public function product(): HasOne
     {
-        return $this->belongsTo(Product::class, 'product_id', 'id_product');
+        return $this->HasOne(Product::class, 'product_id', 'id_product');
     }
 
     /**
