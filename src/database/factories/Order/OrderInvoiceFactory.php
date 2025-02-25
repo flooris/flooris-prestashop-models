@@ -31,7 +31,7 @@ class OrderInvoiceFactory extends Factory
             'delivery_address'                => $this->faker->address(),
             'company_address'                 => $this->faker->address(),
             'note'                            => $this->faker->word(),
-            'date_add'                        => $this->faker->word(),
+            'date_add'                        => $this->faker->dateTime(),
         ];
     }
 }

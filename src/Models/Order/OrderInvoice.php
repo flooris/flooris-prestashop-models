@@ -2,6 +2,7 @@
 
 namespace Flooris\Prestashop\Models\Order;
 
+use Illuminate\Support\Carbon;
 use Flooris\Prestashop\Models\PrestashopModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
@@ -30,7 +31,7 @@ use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
  * @property string|null $delivery_address
  * @property string|null $company_address
  * @property string|null $note
- * @property string      $date_add
+ * @property Carbon      $date_add
  *
  * @package Flooris\Prestashop\Models\Order
  */
@@ -57,6 +58,14 @@ class OrderInvoice extends PrestashopModel
      */
     protected $primaryKey = 'id_order_invoice';
 
+    /**
+     * The attributes that should be cast to specific types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'date_add' => 'datetime',
+    ];
     /**
      * Get the order the invoice belongs to.
      *
