@@ -1,0 +1,20 @@
+<?php
+
+namespace Flooris\Prestashop\Enums;
+
+enum OrderSyncStatusEnum: string
+{
+    case STATUS_DATA_REQUESTED = 'DATA-REQUESTED';
+
+    case STATUS_DATA_PROVIDED = 'DATA-PROVIDED';
+
+    case STATUS_SUCCESS = 'SUCCESS';
+
+    case STATUS_FAILED_XML_INVALID = 'FAILED-XML-INVALID';
+
+    case STATUS_FAILED_XML_INCOMPLETE = 'FAILED-XML-INCOMPLETE';
+
+    case STATUS_FAILED_IMPORT = 'FAILED-IMPORT';
+
+    case STATUS_WONT_BE_IMPORTED = 'WONT-BE-IMPORTED';
+}

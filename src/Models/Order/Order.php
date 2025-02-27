@@ -2,17 +2,23 @@
 
 namespace Flooris\Prestashop\Models\Order;
 
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection;
 use Flooris\Prestashop\Models\Address;
-use Flooris\Prestashop\Models\CartRule;
-use Flooris\Prestashop\Models\Customer;
+use Flooris\Prestashop\Models\Language;
+use Flooris\Prestashop\Models\Shop\Shop;
+use Flooris\Prestashop\Models\Cart\Cart;
 use Illuminate\Database\Query\JoinClause;
+use Flooris\Prestashop\Models\Cart\CartRule;
+use Flooris\Prestashop\Models\Shop\ShopGroup;
 use Flooris\Prestashop\Models\PrestashopModel;
+use Flooris\Prestashop\Models\Carrier\Carrier;
+use Flooris\Prestashop\Models\Customer\Customer;
+use Flooris\Prestashop\Models\Currency\Currency;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
 
@@ -61,13 +67,13 @@ use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
  * @property int         $round_type
  * @property int         $invoice_number
  * @property int         $delivery_number
- * @property string      $invoice_date
- * @property string      $delivery_date
+ * @property Carbon      $invoice_date
+ * @property Carbon      $delivery_date
  * @property bool        $valid
  * @property string|null $ga_client_id
  * @property string|null $ga_session_id
- * @property string      $date_add
- * @property string      $date_upd
+ * @property Carbon      $date_add
+ * @property Carbon      $date_upd
  * @property string|null $order_message_type
  * @property string|null $order_message_value
  *
@@ -75,14 +81,7 @@ use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
  */
 class Order extends PrestashopModel
 {
-    use HasPrestashopModelFactoryTrait;
 
-    /**
-     * The primary key associated with the table.
-     *
-     * @var string
-     */
-    protected $primaryKey = 'id_order';
 
     /**
      * Indicates if the model should be timestamped.
@@ -90,17 +89,22 @@ class Order extends PrestashopModel
      * @var bool
      */
     public $timestamps = false;
-
+    /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'id_order';
     /**
      * The attributes that should be cast.
      *
      * @var array
      */
     protected $casts = [
-        'invoice_date' => 'datetime',
+        'invoice_date'  => 'datetime',
         'delivery_date' => 'datetime',
-        'date_add' => 'datetime',
-        'date_upd' => 'datetime',
+        'date_add'      => 'datetime',
+        'date_upd'      => 'datetime',
     ];
 
     /**
@@ -131,6 +135,66 @@ class Order extends PrestashopModel
     public function customer(): BelongsTo
     {
         return $this->belongsTo(Customer::class, 'id_customer');
+    }
+
+    /**
+     * Get the shop group that the order belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function shopGroup(): BelongsTo
+    {
+        return $this->belongsTo(ShopGroup::class, 'id_shop_group', 'id_shop_group');
+    }
+
+    /**
+     * Get the shop that the order belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function shop(): BelongsTo
+    {
+        return $this->belongsTo(Shop::class, 'id_shop', 'id_shop');
+    }
+
+    /**
+     * Get the carrier that the order belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function carrier(): BelongsTo
+    {
+        return $this->belongsTo(Carrier::class, 'id_carrier', 'id_carrier');
+    }
+
+    /**
+     * Get the language that the order belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function lang(): BelongsTo
+    {
+        return $this->belongsTo(Language::class, 'id_lang', 'id_lang');
+    }
+
+    /**
+     * Get the cart that the order belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function cart(): BelongsTo
+    {
+        return $this->belongsTo(Cart::class, 'id_cart', 'id_cart');
+    }
+
+    /**
+     * Get the currency that the order belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function currency(): BelongsTo
+    {
+        return $this->belongsTo(Currency::class, 'id_currency', 'id_currency');
     }
 
     /**
@@ -174,7 +238,7 @@ class Order extends PrestashopModel
             ->leftJoin('order_history AS oh', 'oh.id_order', 'o.id_order')
             ->leftJoin('order_carrier AS oc', 'oc.id_order', 'o.id_order')
             ->leftJoin('carrier AS c', 'c.id_carrier', 'oc.id_carrier')
-            ->leftJoin('order_state_lang AS osl', function(JoinClause $clause) {
+            ->leftJoin('order_state_lang AS osl', function (JoinClause $clause) {
                 $clause->on('osl.id_order_state', 'oh.id_order_state');
                 $clause->on('osl.id_lang', 'o.id_lang');
             })

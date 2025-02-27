@@ -2,30 +2,37 @@
 
 namespace Flooris\Prestashop\Models\Feature;
 
+use Flooris\Prestashop\Models\PrestashopModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Flooris\Prestashop\Traits\CompositeKeyModelTrait;
 
-class FeatureValueLang extends \Flooris\Prestashop\Models\PrestashopModel
+/**
+ * Class FeatureValueLang
+ *
+ * @property int    $id_feature_value
+ * @property int    $id_lang
+ * @property string $value
+ *
+ * @package Flooris\Prestashop\Models\Feature
+ */
+class FeatureValueLang extends PrestashopModel
 {
     use CompositeKeyModelTrait;
 
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'feature_value_lang';
-
-    protected $primaryKey = ['id_feature_value', 'id_lang'];
-
     public $incrementing = false;
-
     /**
      * Indicates if the model should be timestamped.
      *
      * @var bool
      */
     public $timestamps = false;
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'feature_value_lang';
+    protected $primaryKey = ['id_feature_value', 'id_lang'];
 
     /**
      * Get product the feature belongs to.

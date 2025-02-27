@@ -2,14 +2,19 @@
 
 namespace Flooris\Prestashop\Models\Order;
 
+use Flooris\Prestashop\Models\Warehouse;
+use Flooris\Prestashop\Models\Shop\Shop;
 use Flooris\Prestashop\Models\PrestashopModel;
 use Flooris\Prestashop\Models\Product\Product;
+use Flooris\Prestashop\Models\Tax\TaxRulesGroup;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Flooris\Prestashop\Models\Product\ProductAttribute;
 use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
 
 /**
  * Class OrderDetail
+ *
  * @property int         $id_order_detail
  * @property int         $id_order
  * @property int|null    $id_order_invoice
@@ -63,15 +68,20 @@ use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
  */
 class OrderDetail extends PrestashopModel
 {
-    use HasPrestashopModelFactoryTrait;
 
+
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
     /**
      * The table associated with the model.
      *
      * @var string
      */
     protected $table = 'order_detail';
-
     /**
      * The primary key associated with the table.
      *
@@ -80,14 +90,7 @@ class OrderDetail extends PrestashopModel
     protected $primaryKey = 'id_order_detail';
 
     /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var bool
-     */
-    public $timestamps = false;
-
-    /**
-     * Get the order the order detail belongs to.
+     * Get the order that the order detail belongs to.
      *
      * @return BelongsTo
      */
@@ -99,11 +102,61 @@ class OrderDetail extends PrestashopModel
     /**
      * Get the product the order detail belongs to.
      *
+     * @return HasOne
+     */
+    public function product(): HasOne
+    {
+        return $this->HasOne(Product::class, 'product_id', 'id_product');
+    }
+
+    /**
+     * Get the order invoice that the order detail belongs to.
+     *
      * @return BelongsTo
      */
-    public function product(): BelongsTo
+    public function orderInvoice(): BelongsTo
     {
-        return $this->belongsTo(Product::class, 'product_id', 'id_product');
+        return $this->belongsTo(OrderInvoice::class, 'id_order_invoice', 'id_order_invoice');
+    }
+
+    /**
+     * Get the warehouse the order detail belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function warehouse(): BelongsTo
+    {
+        return $this->belongsTo(Warehouse::class, 'id_warehouse', 'id_warehouse');
+    }
+
+    /**
+     * Get the tax rules group the order detail belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function taxRulesGroup(): BelongsTo
+    {
+        return $this->belongsTo(TaxRulesGroup::class, 'id_tax_rules_group', 'id_tax_rules_group');
+    }
+
+    /**
+     * Get the shop the order detail belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function shop(): BelongsTo
+    {
+        return $this->belongsTo(Shop::class, 'id_shop', 'id_shop');
+    }
+
+    /**
+     * Get the product attribute the order detail belongs to.
+     *
+     * @return BelongsTo
+     */
+    public function productAttribute(): BelongsTo
+    {
+        return $this->belongsTo(ProductAttribute::class, 'product_attribute_id', 'id_product_attribute');
     }
 
     /**

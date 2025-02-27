@@ -2,8 +2,8 @@
 
 namespace Flooris\Prestashop\Models\Attribute;
 
+use Flooris\Prestashop\Enums\GroupTypeEnum;
 use Flooris\Prestashop\Models\PrestashopModel;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
 
 /**
@@ -18,21 +18,7 @@ use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
  */
 class AttributeGroup extends PrestashopModel
 {
-    use HasPrestashopModelFactoryTrait;
 
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'attribute_group';
-
-    /**
-     * The primary key associated with the table.
-     *
-     * @var string
-     */
-    protected $primaryKey = 'id_attribute_group';
 
     /**
      * Indicates if the model should be timestamped.
@@ -40,4 +26,24 @@ class AttributeGroup extends PrestashopModel
      * @var bool
      */
     public $timestamps = false;
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'attribute_group';
+    /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'id_attribute_group';
+    /**
+     * The attributes that should be cast to specific types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'group_type' => GroupTypeEnum::class,
+    ];
 }
