@@ -55,12 +55,17 @@ trait CompositeKeyModelTrait
      */
     public function qualifyColumn($columns): string
     {
+        $column = null;
         if (is_array($columns)) {
             $column = $columns[0];
         }
 
         if (Str::contains($column, '.')) {
             return $column;
+        }
+
+        if (is_null($column)) {
+            $column = $columns;
         }
 
         return $this->getTable() . '.' . $column;
