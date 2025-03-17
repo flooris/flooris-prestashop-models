@@ -3,26 +3,22 @@
 namespace Flooris\Prestashop\Models\Feature;
 
 use Flooris\Prestashop\Traits\Translatable;
+use Flooris\Prestashop\Models\PrestashopModel;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class FeatureValue extends \Flooris\Prestashop\Models\PrestashopModel
+/**
+ * Class FeatureValue
+ *
+ * @property int      $id_feature_value
+ * @property int      $id_feature
+ * @property ?boolean $custom
+ *
+ * @package Flooris\Prestashop\Models\Feature
+ */
+class FeatureValue extends PrestashopModel
 {
     use Translatable;
-
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'feature_value';
-
-    /**
-     * The primary key associated with the table.
-     *
-     * @var string
-     */
-    protected $primaryKey = 'id_feature_value';
 
     /**
      * Indicates if the model should be timestamped.
@@ -30,6 +26,26 @@ class FeatureValue extends \Flooris\Prestashop\Models\PrestashopModel
      * @var bool
      */
     public $timestamps = false;
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'feature_value';
+    /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'id_feature_value';
+    /**
+     * The attributes that should be cast to specific types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'custom' => 'boolean',
+    ];
 
     /**
      * Get feature the value belongs to.

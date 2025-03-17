@@ -5,7 +5,6 @@ namespace Flooris\Prestashop\Models\Product;
 use Flooris\Prestashop\Models\PrestashopModel;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
 
 /**
@@ -40,21 +39,7 @@ use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
  */
 class ProductAttribute extends PrestashopModel
 {
-    use HasPrestashopModelFactoryTrait;
 
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'product_attribute';
-
-    /**
-     * The primary key associated with the table.
-     *
-     * @var string
-     */
-    protected $primaryKey = 'id_product_attribute';
 
     /**
      * Indicates if the model should be timestamped.
@@ -62,6 +47,18 @@ class ProductAttribute extends PrestashopModel
      * @var bool
      */
     public $timestamps = false;
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'product_attribute';
+    /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'id_product_attribute';
 
     /**
      * Get the product the attribute belongs to.

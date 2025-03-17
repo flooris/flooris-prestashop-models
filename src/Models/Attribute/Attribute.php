@@ -4,8 +4,8 @@ namespace Flooris\Prestashop\Models\Attribute;
 
 use Flooris\Prestashop\Traits\Translatable;
 use Flooris\Prestashop\Models\PrestashopModel;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Flooris\Prestashop\Traits\HasPrestashopModelFactoryTrait;
 
 /**
@@ -27,25 +27,23 @@ class Attribute extends PrestashopModel
     use Translatable, HasPrestashopModelFactoryTrait;
 
     /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+    /**
      * The table associated with the model.
      *
      * @var string
      */
     protected $table = 'attribute';
-
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
     protected $primaryKey = 'id_attribute';
-
-    /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var bool
-     */
-    public $timestamps = false;
 
     /**
      * Get the group the attribute belongs to.

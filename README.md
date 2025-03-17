@@ -36,7 +36,7 @@ The package allows you to interact with PrestaShop models as Laravel Eloquent mo
 Here’s an example of how to use a PrestaShop model in a Laravel factory:
 
 ```php
-use App\Models\PrestaShop\Product;
+use Flooris\Prestashop\Models\Order\PrestaShop\Product;
 
 Product::factory()->create([
     'name' => 'Sample Product',
@@ -53,7 +53,7 @@ You can define custom factories for PrestaShop models. For example, to create a 
 ```php
 use Faker\Generator as Faker;
 
-$factory->define(App\Models\PrestaShop\Product::class, function (Faker $faker) {
+$factory->define(Flooris\Prestashop\Models\Order\PrestaShop\Product::class, function (Faker $faker) {
     return [
         'name' => $faker->word,
         'price' => $faker->randomFloat(2, 1, 100),
@@ -112,7 +112,7 @@ class ProductAttribute extends BaseProductAttribute
 With this package, you can easily set up tests that involve PrestaShop data. Here’s an example of a simple test that creates a PrestaShop product:
 
 ```php
-use App\Models\PrestaShop\Product;
+use Flooris\Prestashop\Models\Order\PrestaShop\Product;
 use Tests\TestCase;
 
 class ProductTest extends TestCase

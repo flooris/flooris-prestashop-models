@@ -2,7 +2,6 @@
 
 namespace Flooris\Prestashop\Models\Order;
 
-use App\Models\OrderStateLanguage;
 use Flooris\Prestashop\Models\PrestashopModel;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 

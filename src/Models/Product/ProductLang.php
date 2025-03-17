@@ -47,25 +47,20 @@ class ProductLang extends PrestashopModel
      * @var string
      */
     const UPDATED_AT = null;
-
-
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'product_lang';
-
-    protected $primaryKey = ['id_product', 'id_lang'];
-
     public $incrementing = false;
-
     /**
      * Indicates if the model should be timestamped.
      *
      * @var bool
      */
     public $timestamps = false;
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'product_lang';
+    protected $primaryKey = ['id_product', 'id_lang'];
 
     /**
      * Get product the feature belongs to.

@@ -2,76 +2,62 @@
 
 namespace Flooris\Prestashop\Database\Factories\Product;
 
-use Carbon\Carbon;
 use Flooris\Prestashop\Models\Product\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * Class ProductFactory
- *
- * @package Flooris\Prestashop\Database\Factories\Product
- */
 class ProductFactory extends Factory
 {
-    /**
-     * The name of the factory's corresponding model.
-     *
-     * @var string
-     */
     protected $model = Product::class;
 
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
     public function definition(): array
     {
         return [
-            'id_supplier'               => 0,
-            'id_manufacturer'           => 0,
-            'id_category_default'       => 0,
-            'id_shop_default'           => 1,
-            'id_tax_rules_group'        => 1,
-            'on_sale'                   => false,
-            'online_only'               => false,
-            'ean13'                     => $this->faker->ean13,
-            'upc'                       => '',
-            'ecotax'                    => 0,
-            'quantity'                  => 0,
-            'minimal_quantity'          => 1,
-            'price'                     => $this->faker->randomFloat(2, 1, 140),
-            'wholesale_price'           => 0,
-            'unity'                     => '',
-            'unit_price_ratio'          => 0,
-            'additional_shipping_cost'  => 0,
-            'reference'                 => $this->faker->bothify('#####-?????'),
-            'supplier_reference'        => $this->faker->bothify('#####-?????'),
-            'location'                  => '',
-            'width'                     => $this->faker->numberBetween(20, 800),
-            'height'                    => $this->faker->numberBetween(20, 800),
-            'depth'                     => $this->faker->numberBetween(20, 800),
-            'weight'                    => $this->faker->numberBetween(0.25, 80),
-            'out_of_stock'              => 0,
-            'quantity_discount'         => false,
-            'customizable'              => false,
-            'uploadable_files'          => false,
-            'text_fields'               => false,
-            'active'                    => true,
-            'redirect_type'             => '',
+            'on_sale'                   => $this->faker->randomNumber(),
+            'online_only'               => $this->faker->randomNumber(),
+            'ean13'                     => $this->faker->word(),
+            'upc'                       => $this->faker->word(),
+            'ecotax'                    => $this->faker->randomFloat(),
+            'quantity'                  => $this->faker->randomNumber(),
+            'minimal_quantity'          => $this->faker->randomNumber(),
+            'price'                     => $this->faker->randomFloat(),
+            'wholesale_price'           => $this->faker->randomFloat(),
+            'unity'                     => $this->faker->word(),
+            'unit_price_ratio'          => $this->faker->randomFloat(),
+            'additional_shipping_cost'  => $this->faker->randomFloat(),
+            'reference'                 => $this->faker->word(),
+            'supplier_reference'        => $this->faker->word(),
+            'location'                  => $this->faker->word(),
+            'width'                     => $this->faker->randomFloat(),
+            'height'                    => $this->faker->randomFloat(),
+            'depth'                     => $this->faker->randomFloat(),
+            'weight'                    => $this->faker->randomFloat(),
+            'out_of_stock'              => $this->faker->randomNumber(),
+            'quantity_discount'         => $this->faker->randomNumber(),
+            'customizable'              => $this->faker->randomNumber(),
+            'uploadable_files'          => $this->faker->randomNumber(),
+            'text_fields'               => $this->faker->text(),
+            'active'                    => $this->faker->randomNumber(),
+            'redirect_type'             => $this->faker->word(),
             'id_product_redirected'     => 0,
-            'available_for_order'       => true,
-            'available_date'            => Carbon::now(),
-            'condition'                 => 'new',
-            'show_price'                => true,
-            'indexed'                   => true,
-            'visibility'                => 'both',
-            'cache_is_pack'             => false,
-            'is_virtual'                => false,
-            'cache_default_attribute'   => null,
-            'date_add'                  => Carbon::now(),
-            'date_upd'                  => Carbon::now(),
-            'advanced_stock_management' => false,
+            'available_for_order'       => $this->faker->randomNumber(),
+            'available_date'            => $this->faker->word(),
+            'condition'                 => $this->faker->word(),
+            'show_price'                => $this->faker->randomNumber(),
+            'indexed'                   => $this->faker->randomNumber(),
+            'visibility'                => $this->faker->word(),
+            'cache_is_pack'             => $this->faker->randomNumber(),
+            'cache_has_attachments'     => $this->faker->randomNumber(),
+            'is_virtual'                => $this->faker->randomNumber(),
+            'cache_default_attribute'   => $this->faker->randomNumber(),
+            'date_add'                  => $this->faker->word(),
+            'date_upd'                  => $this->faker->word(),
+            'advanced_stock_management' => $this->faker->randomNumber(),
+            'name_invoice'              => $this->faker->name(),
+            'store_location'            => $this->faker->randomNumber(),
+            'pack_stock_type'           => $this->faker->randomNumber(),
+            'hs_code'                   => $this->faker->word(),
+            'origin_country'            => $this->faker->country(),
+            'review_priority'           => $this->faker->randomNumber(),
         ];
     }
 }
