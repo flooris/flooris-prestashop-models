@@ -15,7 +15,7 @@ trait CompositeKeyModelTrait
      */
     public function qualifyColumn($columns): string
     {
-        $column = null;
+        $column = '';
         if (is_array($columns)) {
             $column = $columns[0];
         }
@@ -24,7 +24,7 @@ trait CompositeKeyModelTrait
             return $column;
         }
 
-        if (is_null($column)) {
+        if (strlen($column) === 0) {
             $column = $columns;
         }
 
