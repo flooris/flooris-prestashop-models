@@ -1,6 +1,6 @@
 <?php
 
-namespace Flooris\Prestashop\Database\Factories\zz_new;
+namespace Flooris\Prestashop\Database\Factories\Meta;
 
 use Flooris\Prestashop\Models\Meta\Meta;
 use Illuminate\Database\Eloquent\Factories\Factory;
